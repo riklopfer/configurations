@@ -97,7 +97,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias clipboard='xclip -selection clipoboard'
-alias tb="nc termbin.com 9999"
+alias pb="pastebinit"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert

@@ -173,18 +173,13 @@ pdone() {
         PF="FAIL"
 
         T="$(date +%s%N)"
-        "${@}"
+        "${@}" && PF="PASS"
         T="$(($(date +%s%N)-T))"
 
         if [ $(hash bc 2> /dev/null) ]; then
             M=$(echo "scale=2; ${T}/60000000000" | bc -l)
         else
             M=$((${T}/60000000000))
-        fi
-
-
-        if [[ $? -eq 0 ]]; then
-          PF="PASS"
         fi
 
         pnote ${PF} ${M}m ${CMD}

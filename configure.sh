@@ -32,3 +32,6 @@ done
 
 # apply Xresources changes
 xrdb -merge $HOME/.Xresources
+
+# source bashrc
+source ~/.bashrc

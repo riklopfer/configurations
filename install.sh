@@ -10,7 +10,9 @@ if command -v apt >/dev/null 2>&1; then
 
     # not sure this will work
     # apt install sublime-text
-    wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3083_amd64.deb -O sublime-text.deb
+    if ! [ -f sublime-text.deb ]; then
+        wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3083_amd64.deb -O sublime-text.deb
+    fi
     sudo dpkg -i sublime-text.deb || exit
 
     # terminator

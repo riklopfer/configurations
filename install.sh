@@ -12,6 +12,8 @@ if command -v apt >/dev/null 2>&1; then
 
     # install python
     sudo apt install python python-pip || exit
+    # upgrade pip and virtual env wrapper
+    sudo pip install -U pip virtualenvwrapper || exit
 
     # sublime text
     if ! [ -f /tmp/sublime-text.deb ]; then

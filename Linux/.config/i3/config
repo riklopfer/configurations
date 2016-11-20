@@ -62,8 +62,8 @@ exec --no-startup-id dropbox start
 assign [class="jetbrains-idea-ce"] $ws4
 
 # first start floating terminator
-exec terminator -c dropdown -p dropdown -T "Le Terminator" -H --geometry=1550x800
-for_window [class="Terminator" instance="dropdown"] floating enable
+# exec terminator -c dropdown -p dropdown -T "Le Terminator" -H --geometry=1550x800
+# for_window [class="Terminator" instance="dropdown"] floating enable
 
 # start applications in specific workspaces
 exec --no-startup-id i3-msg 'workspace $ws1; exec chromium-browser; workspace $ws1'

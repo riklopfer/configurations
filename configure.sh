@@ -11,8 +11,14 @@ fi
 # Link configs
 ##
 
+function backup() {
+    FILE=$1
+    [ $FILE ] && [ -f $FILE ] && ! [ -L $FILE ] && mv $FILE $FILE.bak
+}
+
 # back up .bashrc
-[ -f $HOME/.bashrc ] && ! [ -L $HOME/.bashrc ] && mv $HOME/.bashrc $HOME/.bashrc.bak
+backup $HOME/.bashrc
+backup $HOME/.Xresources
 
 # .config/ dir
 for TARGET in $(find $BASE_DIR -type f); do
@@ -23,3 +29,6 @@ for TARGET in $(find $BASE_DIR -type f); do
     echo "ln -fs $TARGET $NAME"
     ln -fs $TARGET $NAME
 done
+
+# apply Xresources changes
+xrdb -merge ~/.Xresources

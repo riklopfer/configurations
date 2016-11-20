@@ -5,12 +5,14 @@
 
 if command -v apt >/dev/null 2>&1; then
     echo "Installing software"
+    sudo apt update
+    
     # window manager and browser
     sudo apt install i3 chromium || exit
 
     # install python
     sudo apt install python || exit
-    
+
     # sublime text
     if ! [ -f /tmp/sublime-text.deb ]; then
         wget https://download.sublimetext.com/sublime-text_build-3126_amd64.deb -O /tmp/sublime-text.deb

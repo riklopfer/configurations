@@ -61,6 +61,10 @@ exec --no-startup-id dropbox start
 # class found with `xprop`
 assign [class="jetbrains-idea-ce"] $ws4
 
+# first start floating terminator
+exec terminator -c dropdown -p dropdown -T "Le Terminator" -H --geometry=1550x800
+for_window [class="Terminator" instance="dropdown"] floating enable
+
 # start applications in specific workspaces
 exec --no-startup-id i3-msg 'workspace $ws1; exec chromium-browser; workspace $ws1'
 exec --no-startup-id i3-msg 'workspace $ws2; exec i3-sensible-terminal; workspace $ws1'

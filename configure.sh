@@ -20,7 +20,7 @@ fi
 ##
 
 # back up .bashrc
-[ -e $HOME/.bashrc ] && mv $HOME/.bashrc $HOME/.bashrc.bak
+[ -f $HOME/.bashrc ] && mv $HOME/.bashrc $HOME/.bashrc.bak
 
 # .config/ dir
 for TARGET in $(find $BASE_DIR -type f); do

@@ -6,7 +6,7 @@
 if command -v apt >/dev/null 2>&1; then
     echo "Installing software"
     # common 
-    sudo apt install i3 chromium-browser
+    sudo apt install i3 chromium
 
     # not sure this will work
     # apt install sublime-text

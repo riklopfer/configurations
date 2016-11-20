@@ -4,16 +4,8 @@ BASE_DIR=$LOC/$(uname)
 
 if ! [ -d $BASE_DIR ]; then
     echo "Unknown OS: $(uname)"
-    exit
+    exit 1
 fi
-
-## 
-# Install software
-##
-# apt install i3 terminator python-keybinder chromium-browser
-
-# not sure this will work
-# apt install sublime-text
 
 ##
 # Link configs

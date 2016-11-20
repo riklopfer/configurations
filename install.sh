@@ -17,7 +17,7 @@ if command -v apt >/dev/null 2>&1; then
     # apt install i3 terminator python-keybinder
 
     # urxvt
-    sudo apt install urxvt || exit
+    sudo apt install rxvt-unicode || exit
     sudo update-alternatives --set x-terminal-emulator $(which urxvt) || exit
 
 else

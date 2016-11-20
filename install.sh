@@ -18,6 +18,7 @@ if command -v apt >/dev/null 2>&1; then
 
     # urxvt
     sudo apt install rxvt-unicode || exit
+    sudo apt install ttf-inconsolata || echo "Could not install ttf-inconsolata"
     sudo update-alternatives --set x-terminal-emulator $(which urxvt) || exit
 
 else

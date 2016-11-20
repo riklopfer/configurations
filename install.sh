@@ -9,7 +9,7 @@ if command -v apt >/dev/null 2>&1; then
     sudo apt install i3 chromium python openjdk-8-jdk openjdk-7-jdk || exit
 
     # sublime text
-    if ! [ -f sublime-text.deb ]; then
+    if ! [ -f /tmp/sublime-text.deb ]; then
         wget https://download.sublimetext.com/sublime-text_build-3126_amd64.deb -O /tmp/sublime-text.deb
     fi
     sudo dpkg -i /tmp/sublime-text.deb || exit

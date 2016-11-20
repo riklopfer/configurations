@@ -31,4 +31,4 @@ for TARGET in $(find $BASE_DIR -type f); do
 done
 
 # apply Xresources changes
-xrdb -merge ~/.Xresources
+xrdb -merge $HOME/.Xresources

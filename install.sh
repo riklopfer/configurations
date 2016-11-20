@@ -6,14 +6,13 @@
 if command -v apt >/dev/null 2>&1; then
     echo "Installing software"
     # common 
-    sudo apt install i3 chromium || exit
+    sudo apt install i3 chromium python openjdk-8-jdk openjdk-7-jdk || exit
 
-    # not sure this will work
-    # apt install sublime-text
+    # sublime text
     if ! [ -f sublime-text.deb ]; then
-        wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3083_amd64.deb -O sublime-text.deb
+        wget https://download.sublimetext.com/sublime-text_build-3126_amd64.deb -O /tmp/sublime-text.deb
     fi
-    sudo dpkg -i sublime-text.deb || exit
+    sudo dpkg -i /tmp/sublime-text.deb || exit
 
     # terminator
     # apt install i3 terminator python-keybinder

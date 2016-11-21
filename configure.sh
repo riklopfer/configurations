@@ -30,6 +30,17 @@ for TARGET in $(find $BASE_DIR -type f); do
     ln -fs $TARGET $NAME
 done
 
+(
+cat << EOF
+<pastebinit>
+    <pastebin>https://paste.debian.net</pastebin>
+    <author>${USER}</author>
+    <format>text</format>
+    <jabberid>nobody@nowhere.org</jabberid>
+</pastebinit>
+EOF
+) > $HOME/.pastebinit.xml
+
 # apply Xresources changes
 xrdb -merge $HOME/.Xresources
 

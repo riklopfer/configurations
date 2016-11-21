@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+if [[ -z $1 ]]; then
+    echo "USAGE: pnote <some message>"
+    echo "Send notification via Pushover"
+    exit 1
+fi
+
+PO_CONFIG=$HOME/.pushover
+
+if ! [ $PO_APP_TOK ] && ! [ $PO_USER_TOK ]; then
+    if [ -f $PO_CONFIG ]; then
+        PO_APP_TOK=$(awk '/^app/{print $3}' $PO_CONFIG)
+        PO_USER_TOK=$(awk '/^user/{print $3}' $PO_CONFIG)
+    else
+        echo "$HOME/.pushover does not exist"
+        exit 1
+    fi
+fi
+
+MESSAGE="$@"
+
+curl -s \
+    -F "token=$PO_APP_TOK" \
+    -F "user=$PO_USER_TOK" \
+    -F "message=$MESSAGE" \
+    -F "title=$HOSTNAME" \
+    https://api.pushover.net/1/messages > /dev/null

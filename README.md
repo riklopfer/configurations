@@ -10,10 +10,10 @@ git clone https://github.com/riklopfer/configurations.git
 # Execute bash scripts
 
 ```bash
-# this will installs software
+# this installs software
 ./configurations/debian_install.sh
 
-# this links from the cloned git reposity to $HOME
+# this creates links from the cloned git reposity to $HOME 
 ./configurations/configure.sh
 ```
 # Software installed

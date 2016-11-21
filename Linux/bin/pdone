@@ -13,7 +13,7 @@ T="$(date +%s%N)"
 EXIT_CODE=$?
 T="$(($(date +%s%N)-T))"
 
-if [ $(hash bc 2> /dev/null) ]; then
+if $(hash bc 2> /dev/null); then
     M=$(echo "scale=2; ${T}/60000000000" | bc -l)
 else
     M=$((${T}/60000000000))

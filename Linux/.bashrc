@@ -133,10 +133,11 @@ source /usr/local/bin/virtualenvwrapper.sh
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/PythonProjects
 
-export DEVTOOLS=/home/rklopfer/Work/scm/devTools
 export JAVA_HOME=/usr/lib/jvm/java-7-oracle
-export JYTHON_HOME=/home/rklopfer/jython2.7.1b3
+export JYTHON_HOME=$HOME/jython2.7.1b3
 
+# MModal specific
+export DEVTOOLS=$HOME/Work/scm/devTools
 
 function mkdate () {
     DNAME=`date +'%m-%d-%y' | perl -pe "s/^0([2-9])/\1/"`

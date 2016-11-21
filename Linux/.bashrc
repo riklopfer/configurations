@@ -147,44 +147,6 @@ function mkdate () {
 }
 alias cdd='cd `mkdate`'
 
-pnote () {
-    if [[ -z $1 ]]; then
-        echo "USAGE: pnote <some message>"
-        echo "Send notification via Pushover"
-    else
-        TOKEN=Oxq26EFgZDAozsfKPKPHEnjSfI8u7b
-        USER=1AtqESJwRJLUJ7qKh57yQdLLqk9UWv
-        MESSAGE="$@"
-
-        curl -s \
-            -F "token=$TOKEN" \
-            -F "user=$USER" \
-            -F "message=$MESSAGE" \
-            -F "title=$HOSTNAME" \
-            https://api.pushover.net/1/messages > /dev/null
-    fi
-}
-
-pdone() {
-    if [[ -z $1 ]]; then
-        echo "USAGE: pdone <some task>"
-    else
-        CMD="${@}"
-        PF="FAIL"
-
-        T="$(date +%s%N)"
-        "${@}" && PF="PASS"
-        T="$(($(date +%s%N)-T))"
-
-        if [ $(hash bc 2> /dev/null) ]; then
-            M=$(echo "scale=2; ${T}/60000000000" | bc -l)
-        else
-            M=$((${T}/60000000000))
-        fi
-
-        pnote ${PF} ${M}m ${CMD}
-    fi
-}
 
 clean () {
     DEPTH=12

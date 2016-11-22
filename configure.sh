@@ -30,6 +30,7 @@ for TARGET in $(find $BASE_DIR -type f); do
     ln -fs $TARGET $NAME
 done
 
+# write out a reasonable .pastebinit.xml file
 (
 cat << EOF
 <pastebinit>
@@ -40,6 +41,9 @@ cat << EOF
 </pastebinit>
 EOF
 ) > $HOME/.pastebinit.xml
+
+# create link to .pushover if it exists where we expect it to be
+[ -f $HOME/Dropbox/Private/.pushover ] && ! [ -L $HOME/.pushover] && ln -fs $HOME/Dropbox/Private/.pushover $HOME/.pushover
 
 # apply Xresources changes
 xrdb -merge $HOME/.Xresources

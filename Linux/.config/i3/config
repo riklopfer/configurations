@@ -58,6 +58,13 @@ bindsym $mod+u workspace prev
 # start dropbox
 exec --no-startup-id dropbox start
 
+# start urxvt daemon
+exec --no-startup-id urxvtd -q -o -f
+
+# configure terminal_command
+set $terminal_command urxvtc
+#set $terminal_command i3-sensible-terminal
+
 # class found with `xprop`
 assign [class="jetbrains-idea-ce"] $ws4
 
@@ -67,7 +74,7 @@ assign [class="jetbrains-idea-ce"] $ws4
 
 # start applications in specific workspaces
 exec --no-startup-id i3-msg 'workspace $ws1; exec chromium-browser; workspace $ws1'
-exec --no-startup-id i3-msg 'workspace $ws2; exec i3-sensible-terminal; workspace $ws1'
+exec --no-startup-id i3-msg 'workspace $ws2; exec $terminal_command; workspace $ws1'
 exec --no-startup-id i3-msg 'workspace $ws3; exec subl; workspace $ws1'
 exec --no-startup-id i3-msg 'workspace $ws4; exec idea; workspace $ws1'
 exec --no-startup-id i3-msg 'workspace $ws5; exec thunderbird; workspace $ws1'
@@ -109,7 +116,7 @@ font pango:DejaVu Sans Mono 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+grave exec i3-sensible-terminal
+bindsym $mod+grave exec $terminal_command
 
 # kill focused window
 bindsym $mod+q kill

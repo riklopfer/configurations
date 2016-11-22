@@ -10,7 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1
-
+set $windows Mod4
 
 #######
 # rklopfer
@@ -82,7 +82,7 @@ exec --no-startup-id i3-msg 'workspace $ws6; exec hexchat; workspace $ws1'
 
 # screen locking
 set $lock_command "i3lock -c 002b36"
-bindsym $mod+Escape exec $lock_command
+bindsym $windows+Escape exec $lock_command
 exec --no-startup-id xautolock -time 10 -locker $lock_command
 
 # from https://faq.i3wm.org/question/3747/enabling-multimedia-keys.1.html

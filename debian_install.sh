@@ -25,8 +25,8 @@ if command -v apt >/dev/null 2>&1; then
     # apt install i3 terminator python-keybinder
 
     # urxvt
-    sudo apt install rxvt-unicode fonts-inconsolata || exit
-    sudo update-alternatives --set x-terminal-emulator $(which urxvt) || exit
+    sudo apt install rxvt-unicode-256color ncurses-term fonts-inconsolata || exit
+    sudo update-alternatives --set x-terminal-emulator $(which urxvtcd) || exit
 
 else
     echo "Not installing software"

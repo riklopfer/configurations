@@ -1,11 +1,8 @@
 #!/bin/bash
 LOC=$(dirname $(readlink -f $0))
-BASE_DIR=$LOC/$(uname)
+BASE_DIR=$LOC/base_configs
 
-if ! [ -d $BASE_DIR ]; then
-    echo "Unknown OS: $(uname)"
-    exit 1
-fi
+[ -d $BASE_DIR ] || exit 1
 
 ##
 # Link configs

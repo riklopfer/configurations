@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+if [[ -z $1 ]]; then
+    echo "USAGE: pdone <some task>"
+    exit 1
+fi
+
+CMD="${@}"
+
+PF="FAIL"
+
+T="$(date +%s%N)"
+"${@}" 
+EXIT_CODE=$?
+T="$(($(date +%s%N)-T))"
+
+if $(hash bc 2> /dev/null); then
+    M=$(echo "scale=2; ${T}/60000000000" | bc -l)
+else
+    M=$((${T}/60000000000))
+fi
+
+[ $EXIT_CODE -eq 0 ] && PF="PASS"
+
+pnote ${PF} ${M}m ${CMD}
+
+exit $EXIT_CODE

@@ -61,27 +61,29 @@ exec --no-startup-id dropbox start
 # start urxvt daemon
 exec --no-startup-id urxvtd -q -o -f
 
-# configure terminal_command
-set $terminal_command urxvtc
-#set $terminal_command i3-sensible-terminal
+# set variables for common commands
+set $terminal_command           urxvtc
+set $text_editor_command        subl
+set $ide_command                idea
+set $browser_command            chromium-browser
+set $email_command              thunderbird
+set $irc_command                hexchat
+set $lock_command               "i3lock -c 002b36"
+
+
 
 # class found with `xprop`
 assign [class="jetbrains-idea-ce"] $ws4
 
-# first start floating terminator
-# exec terminator -c dropdown -p dropdown -T "Le Terminator" -H --geometry=1550x800
-# for_window [class="Terminator" instance="dropdown"] floating enable
-
 # start applications in specific workspaces
-exec --no-startup-id i3-msg 'workspace $ws1; exec chromium-browser; workspace $ws1'
+exec --no-startup-id i3-msg 'workspace $ws1; exec $browser_command; workspace $ws1'
 exec --no-startup-id i3-msg 'workspace $ws2; exec $terminal_command; workspace $ws1'
-exec --no-startup-id i3-msg 'workspace $ws3; exec subl; workspace $ws1'
-exec --no-startup-id i3-msg 'workspace $ws4; exec idea; workspace $ws1'
-exec --no-startup-id i3-msg 'workspace $ws5; exec thunderbird; workspace $ws1'
-exec --no-startup-id i3-msg 'workspace $ws6; exec hexchat; workspace $ws1'
+exec --no-startup-id i3-msg 'workspace $ws3; exec $text_editor_command; workspace $ws1'
+exec --no-startup-id i3-msg 'workspace $ws4; exec $ide_command; workspace $ws1'
+exec --no-startup-id i3-msg 'workspace $ws5; exec $email_command; workspace $ws1'
+exec --no-startup-id i3-msg 'workspace $ws6; exec $irc_command; workspace $ws1'
 
 # screen locking
-set $lock_command "i3lock -c 002b36"
 bindsym $windows+Escape exec $lock_command
 exec --no-startup-id xautolock -time 10 -locker $lock_command
 

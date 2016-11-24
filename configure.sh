@@ -4,7 +4,7 @@ LOC=$(dirname $(readlink -f $0))
 echo
 echo "Running shared configuration"
 echo
-$LOC/link_configs.sh $LOC/shared/configs
+$LOC/link_configs.sh $LOC/shared/files
 $LOC/shared/configure.sh
 
 if ! source /etc/os-release 2> /dev/null; then
@@ -20,5 +20,5 @@ fi
 echo 
 echo "Running $ID configuration"
 echo 
-[ -d $LOC/$ID/configs ] && $LOC/link_configs.sh $LOC/$ID/configs
+[ -d $LOC/$ID/files ] && $LOC/link_configs.sh $LOC/$ID/files
 [ -f $LOC/$ID/configure.sh ] && $LOC/$ID/configure.sh

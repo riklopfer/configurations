@@ -65,7 +65,7 @@ exec --no-startup-id urxvtd -q -o -f
 set $terminal_command           urxvtc
 set $text_editor_command        subl
 set $ide_command                idea
-set $browser_command            surf
+set $browser_command            "tabbed -c surf -e"
 set $email_command              thunderbird
 set $irc_command                hexchat
 set $lock_command               "i3lock -c 002b36"

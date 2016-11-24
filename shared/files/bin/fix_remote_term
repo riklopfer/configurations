@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+[ -z ${1} ] && { 
+    echo "USAGE: $0 <remote host>"
+    exit 1 
+}
+
+ssh $1 mkdir -p ~/.terminfo/r/
+scp /usr/share/terminfo/r/rxvt-unicode-256color "$1":~/.terminfo/r/

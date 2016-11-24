@@ -9,10 +9,12 @@ function install_or_exit() {
     [ $1 ] && sudo apt-get install "$@" || exit 1
 }
 
+# x windows
+install_or_exit xorg
 # window manager 
-install_or_exit i3
+install_or_exit i3 i3status
 # web browser
-install_or_exit chromium
+install_or_exit surf
 # cli task manger
 install_or_exit task
 

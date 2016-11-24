@@ -2,11 +2,22 @@
 ## 
 # Install basics: window manager, browser, text editor, terminal
 ##
+while getopts "y" opt; do
+  case $opt in
+    y)
+      DASH_Y=-y
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+  esac
+done
 
 sudo apt-get update
 
 function install_or_exit() {
-    [ $1 ] && sudo apt-get install "$@" || { 
+    [ $1 ] && sudo apt-get install $DASH_Y "$@" || { 
         echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
         echo "FAILED TO INSTALL $@"
         echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"

@@ -10,7 +10,7 @@ function install_or_exit() {
 }
 
 # window manager 
-install_or_exit i3
+install_or_exit i3 i3status
 # web browser
 install_or_exit chromium-browser
 # cli task manger

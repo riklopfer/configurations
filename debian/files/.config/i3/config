@@ -58,11 +58,8 @@ bindsym $mod+u workspace prev
 # start dropbox
 exec --no-startup-id dropbox start
 
-# start urxvt daemon
-exec --no-startup-id urxvtd -q -o -f
-
 # set variables for common commands
-set $terminal_command           urxvtc
+set $terminal_command           urxvtcd
 set $text_editor_command        subl
 set $ide_command                idea
 set $browser_command            "tabbed -c surf -e"

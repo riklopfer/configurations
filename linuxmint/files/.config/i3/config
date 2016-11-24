@@ -67,8 +67,6 @@ set $email_command              thunderbird
 set $irc_command                hexchat
 set $lock_command               "i3lock -c 002b36"
 
-
-
 # class found with `xprop`
 assign [class="jetbrains-idea-ce"] $ws4
 

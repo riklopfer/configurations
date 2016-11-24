@@ -20,7 +20,7 @@ URxvt.iso14755_52: false
 
 ! set a nice font
 URxvt*font: xft:Inconsolata:size=15
-URxvt*letterSpace: -2
+URxvt*letterSpace: -1
 
 !! Perl extensions
 urxvt.perl-ext-common: default,matcher,selection-to-clipboard

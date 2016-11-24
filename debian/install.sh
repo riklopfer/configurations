@@ -28,11 +28,16 @@ install_or_exit task
 if ! [ -f /tmp/sublime-text.deb ]; then
     wget https://download.sublimetext.com/sublime-text_build-3126_amd64.deb -O /tmp/sublime-text.deb
 fi
-sudo dpkg -i /tmp/sublime-text.deb || exit
+sudo dpkg -i /tmp/sublime-text.deb || {
+    echo "FAILED TO INSTALL SUBLIME TEXT"
+    exit 1
+}
 
 # urxvt
 install_or_exit rxvt-unicode-256color ncurses-term fonts-inconsolata
-sudo update-alternatives --set x-terminal-emulator $(which urxvtcd) || exit 1
+sudo update-alternatives --set x-terminal-emulator $(which urxvtcd) || {
+    echo "FAILED TO UPDATE ALTERNATIVES with '$(which urxvtcd) '"
+}
 
 # python
 install_or_exit python python-pip 

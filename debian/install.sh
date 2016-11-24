@@ -29,6 +29,8 @@ function install_or_exit() {
 install_or_exit xorg
 # window manager 
 install_or_exit i3 i3status xautolock
+# network manager
+install_or_exit network-manager
 # web browser
 install_or_exit surf
 # cli task manger

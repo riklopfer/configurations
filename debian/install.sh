@@ -6,7 +6,12 @@
 sudo apt-get update
 
 function install_or_exit() {
-    [ $1 ] && sudo apt-get install "$@" || exit 1
+    [ $1 ] && sudo apt-get install "$@" || { 
+        echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        echo "FAILED TO INSTALL $@"
+        echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        exit 1
+    }
 }
 
 # x windows

@@ -1,0 +1,12 @@
+xorg
+i3
+i3status
+xautolock
+network-manager
+surf
+task
+rxvt-unicode-256color 
+ncurses-term 
+fonts-inconsolata
+python 
+python-pip

@@ -1,11 +1,20 @@
 #!/usr/bin/env bash
 LOC=$(dirname $(readlink -f $0))
 
-echo
-echo "Running shared configuration"
-echo
-$LOC/helper/link_configs.sh $LOC/shared/home
-$LOC/shared/configure.sh
+function configure_id() {
+    if [ $1 ]; then
+        ID=$1
+
+        echo 
+        echo "Running $ID configuration"
+        echo 
+        [ -f $LOC/$ID/pre_configure.sh ] && $LOC/$ID/pre_configure.sh
+        [ -d $LOC/$ID/home ] && $LOC/helper/link_configs.sh $LOC/$ID/home
+        [ -f $LOC/$ID/post_configure.sh ] && $LOC/$ID/post_configure.sh
+    fi
+}
+
+configure_id shared
 
 if ! source /etc/os-release 2> /dev/null; then
     echo "Cannot find /etc/os-release -- don't know how to proceed."
@@ -17,8 +26,5 @@ if ! [ -d $LOC/$ID ]; then
     exit 1
 fi
 
-echo 
-echo "Running $ID configuration"
-echo 
-[ -d $LOC/$ID/home ] && $LOC/helper/link_configs.sh $LOC/$ID/home
-[ -f $LOC/$ID/configure.sh ] && $LOC/$ID/configure.sh
+
+configure_id $ID

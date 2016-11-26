@@ -11,18 +11,27 @@ while getopts "y" opt; do
   esac
 done
 
+LOC=$(dirname $(readlink -f $0))
+
 if ! source /etc/os-release 2> /dev/null; then
     echo "Cannot find /etc/os-release -- don't know how to proceed."
     exit 1
 fi
 
-LOC=$(dirname $(readlink -f $0))
-
 if ! [ -d $LOC/$ID ]; then 
-    echo "No install script for OS: $ID"
+    echo "No configurations for OS: $ID"
     exit 1
 fi
+
+echo "$LOC/$ID/pre_install.sh"
+[ -f $LOC/$ID/pre_install.sh ] && $LOC/$ID/pre_install.sh
+
 echo 
-echo "Running install script: $LOC/$ID/install.sh $DASH_Y"
+echo "Installing packages for $ID"
 echo 
-exec $LOC/$ID/install.sh $DASH_Y
+for PACKAGE in $(cat $LOC/$ID/packages.list); do
+  $LOC/$ID/install.sh $PACKAGE || exit 1
+done
+
+
+[ -f $LOC/$ID/post_install.sh ] && $LOC/$ID/post_install.sh

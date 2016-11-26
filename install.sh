@@ -30,7 +30,7 @@ echo
 echo "Installing packages for $ID"
 echo 
 for PACKAGE in $(cat $LOC/$ID/packages.list); do
-  $LOC/$ID/install.sh $PACKAGE || exit 1
+  $LOC/$ID/install.sh $DASH_Y $PACKAGE || exit 1
 done
 
 

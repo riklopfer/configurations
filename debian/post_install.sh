@@ -12,7 +12,7 @@ sudo dpkg -i /tmp/sublime-text.deb || {
 
 #dropbox
 if ! [ -f /tmp/dropbox.deb ]; then
-    wget https://www.dropbox.com/download?dl=packages/debian/dropbox_2015.10.28_amd64.deb -o /tmp/dropbox.deb
+    wget https://www.dropbox.com/download?dl=packages/debian/dropbox_2015.10.28_amd64.deb -O /tmp/dropbox.deb
 fi
 sudo dpkg -i /tmp/dropbox.deb || {
     echo "FAILED TO INSTALL DROPBOX"

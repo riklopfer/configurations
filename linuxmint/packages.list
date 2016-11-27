@@ -4,7 +4,9 @@ i3status
 xautolock
 network-manager
 chromium-browser
+surf
 task
+dunst
 rxvt-unicode-256color 
 ncurses-term 
 fonts-inconsolata

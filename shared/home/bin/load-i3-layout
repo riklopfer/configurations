@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+CURRENT_OUTPUT=$(xrandr --current | perl -ne '/(.+?) connected/ && print $1." ";')
+for OUTPUT in $CURRENT_OUTPUT; do
+    notify-send "load-i3-layout" "Loading layout $HOME/.config/i3/$OUTPUT.json"
+    i3-msg "append_layout $HOME/.config/i3/$OUTPUT.json"
+done

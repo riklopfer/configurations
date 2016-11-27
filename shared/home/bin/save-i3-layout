@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+CURRENT_OUTPUT=$(xrandr --current | perl -ne '/(.+?) connected/ && print $1." ";')
+for OUTPUT in $CURRENT_OUTPUT; do
+    notify-send "save-i3-layout" "Saving layout for $OUTPUT"
+    i3-save-tree --output=$OUTPUT > $HOME/.config/i3/$OUTPUT.json
+done

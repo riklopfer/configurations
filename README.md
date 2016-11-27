@@ -13,7 +13,7 @@ git clone https://github.com/riklopfer/configurations.git
 
 ```bash
 # this installs software
-./configurations/debian_install.sh
+./configurations/install.sh
 
 # this creates links from the cloned git reposity to $HOME 
 ./configurations/configure.sh

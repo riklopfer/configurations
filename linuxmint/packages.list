@@ -1,6 +1,7 @@
 xorg
 i3
 i3status
+libanyevent-i3-perl
 xautolock
 network-manager
 chromium-browser

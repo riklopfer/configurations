@@ -15,7 +15,7 @@ if ! [ -f /tmp/dropbox.deb ]; then
     wget https://www.dropbox.com/download?dl=packages/debian/dropbox_2015.10.28_amd64.deb -O /tmp/dropbox.deb
 fi
 sudo dpkg -i /tmp/dropbox.deb || {
-    sudo apt-get -f install || {
+    sudo apt-get -f install -y || {
         echo "FAILED TO INSTALL DROPBOX"
         exit 1
     }

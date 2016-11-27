@@ -21,4 +21,15 @@ if [ -z $1 ]; then
   exit 1
 fi
 
-sudo apt-get install $DASH_Y "$@"
+source /etc/os-release
+case $VERSION_ID in
+    8) 
+    sudo apt-get -t jessie-backports install $DASH_Y "$@"
+    ;;
+    *)
+    sudo apt-get install $DASH_Y "$@"
+    ;;
+    
+esac
+
+

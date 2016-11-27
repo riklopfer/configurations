@@ -4,7 +4,7 @@
 ! [ -d $HOME/Git ] && mkdir $HOME/Git
 git clone http://git.suckless.org/surf $HOME/Git/surf
 cd $HOME/Git/surf
-make clean install
+sudo make clean install || exit 1
 cd -
 
 # text editor

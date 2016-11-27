@@ -4,7 +4,9 @@ i3status
 xautolock
 dunst
 network-manager
-surf
+git
+libwebkit-dev
+libgtk2.0-dev
 task
 rxvt-unicode-256color 
 ncurses-term 

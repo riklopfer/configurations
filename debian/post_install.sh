@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+# surf
+! [ -d $HOME/Git ] && mkdir $HOME/Git
+git clone http://git.suckless.org/surf $HOME/Git/surf
+cd $HOME/Git/surf
+make clean install
+cd -
+
 # text editor
 # install sublime text
 if ! [ -f /tmp/sublime-text.deb ]; then

@@ -10,6 +10,15 @@ sudo dpkg -i /tmp/sublime-text.deb || {
     exit 1
 }
 
+#dropbox
+if ! [ -f /tmp/dropbox.deb ]; then
+    wget https://www.dropbox.com/download?dl=packages/debian/dropbox_2015.10.28_amd64.deb -o /tmp/dropbox.deb
+fi
+sudo dpkg -i /tmp/dropbox.deb || {
+    echo "FAILED TO INSTALL DROPBOX"
+    exit 1
+}
+
 # update alternatives
 sudo update-alternatives --set x-terminal-emulator $(which urxvtcd) || {
     echo "FAILED TO UPDATE ALTERNATIVES with '$(which urxvtcd) '"

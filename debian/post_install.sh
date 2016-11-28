@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 # surf
-! [ -d $HOME/Git ] && mkdir $HOME/Git
-git clone http://git.suckless.org/surf $HOME/Git/surf
-cd $HOME/Git/surf
-sudo make clean install || exit 1
-cd -
+# ! [ -d $HOME/Git ] && mkdir $HOME/Git
+# git clone http://git.suckless.org/surf $HOME/Git/surf
+# cd $HOME/Git/surf
+# sudo make clean install || exit 1
+# cd -
 
 # text editor
 # install sublime text

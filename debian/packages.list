@@ -6,8 +6,7 @@ xautolock
 dunst
 network-manager
 git
-libwebkit-dev
-libgtk2.0-dev
+chromium
 task
 rxvt-unicode-256color 
 ncurses-term 

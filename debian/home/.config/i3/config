@@ -10,7 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1
-set $windows Mod4
+set $mod4 Mod4
 
 #######
 # rklopfer
@@ -62,7 +62,7 @@ exec --no-startup-id dropbox start
 set $terminal_command           urxvtcd
 set $text_editor_command        subl
 set $ide_command                idea
-set $browser_command            "tabbed -c surf -e"
+set $browser_command            chromium
 set $email_command              thunderbird
 set $irc_command                hexchat
 set $lock_command               "i3lock -c 002b36"
@@ -81,7 +81,7 @@ exec --no-startup-id i3-msg 'workspace $ws5; exec $email_command; workspace $ws1
 exec --no-startup-id i3-msg 'workspace $ws6; exec $irc_command; workspace $ws1'
 
 # screen locking
-bindsym $windows+Escape exec $lock_command
+bindsym $mod4+Escape exec $lock_command
 exec --no-startup-id xautolock -time 10 -locker $lock_command
 
 # from https://faq.i3wm.org/question/3747/enabling-multimedia-keys.1.html

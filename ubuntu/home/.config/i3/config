@@ -80,7 +80,8 @@ exec --no-startup-id i3-msg 'workspace $ws6; exec $irc_command; workspace $ws1'
 
 # screen locking
 bindsym $windows+Escape exec $lock_command
-exec --no-startup-id xautolock -time 10 -locker $lock_command
+# THIS IS A VM RIGHT NOW SO NO SCREEN LOCKING
+#exec --no-startup-id xautolock -time 10 -locker $lock_command
 
 # from https://faq.i3wm.org/question/3747/enabling-multimedia-keys.1.html
 # Pulse Audio controls

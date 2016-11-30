@@ -34,5 +34,5 @@ URxvt*letterSpace: -1
 !! Perl extensions
 urxvt.perl-ext-common: default,matcher,selection-to-clipboard
 !! Open urls in browser with Control-Click
-urxvt.urlLauncher: /usr/bin/surf
+!urxvt.urlLauncher: /usr/bin/surf
 urxvt.matcher.button: 1

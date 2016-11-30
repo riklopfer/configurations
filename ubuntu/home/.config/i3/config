@@ -22,9 +22,9 @@ exec synclient TouchpadOff=1
 # Workspace names
 set $ws1 1:web
 set $ws2 2:cmd
-set $ws3 3:subl
-set $ws4 4:ide
-set $ws5 5:email
+set $ws3 3:ide
+set $ws4 4:cmd
+set $ws5 5:subl
 set $ws6 6:irc
 
 # switch to workspace
@@ -54,15 +54,8 @@ bindsym $mod+Shift+0 move container to workspace 10
 # cycle workspaces
 bindsym $mod+i workspace next
 bindsym $mod+u workspace prev
-
-# back and forth
-bindsym $mod+Tab workspace back_and_forth
-
-# give window focus if it wants it
-focus_on_window_activation focus
-
-# start dropbox
-exec --no-startup-id dropbox start
+bindsym $mod+Shift+i move container to workspace next
+bindsym $mod+Shift+u move container to workspace prev
 
 # set variables for common commands
 set $terminal_command           urxvtcd
@@ -74,15 +67,25 @@ set $irc_command                hexchat
 set $lock_command               "i3lock -c 002b36"
 
 # class found with `xprop`
-assign [class="jetbrains-idea-ce"] $ws4
+assign [class="jetbrains-idea-ce"] $ws3
+assign [class="chromium-browser"] $ws1
 
 # start applications in specific workspaces
 exec --no-startup-id i3-msg 'workspace $ws1; exec $browser_command; workspace $ws1'
 exec --no-startup-id i3-msg 'workspace $ws2; exec $terminal_command; workspace $ws1'
-exec --no-startup-id i3-msg 'workspace $ws3; exec $text_editor_command; workspace $ws1'
-exec --no-startup-id i3-msg 'workspace $ws4; exec $ide_command; workspace $ws1'
-exec --no-startup-id i3-msg 'workspace $ws5; exec $email_command; workspace $ws1'
+exec --no-startup-id i3-msg 'workspace $ws3; exec $ide_command; workspace $ws1'
+exec --no-startup-id i3-msg 'workspace $ws4; exec $terminal_command; workspace $ws1'
+exec --no-startup-id i3-msg 'workspace $ws5; exec $text_editor_command; workspace $ws1'
 exec --no-startup-id i3-msg 'workspace $ws6; exec $irc_command; workspace $ws1'
+
+# back and forth
+bindsym $mod+Tab workspace back_and_forth
+
+# give window focus if it wants it
+focus_on_window_activation focus
+
+# start dropbox
+exec --no-startup-id dropbox start
 
 # screen locking
 bindsym $windows+Escape exec $lock_command

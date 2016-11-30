@@ -54,6 +54,14 @@ bindsym $mod+Shift+0 move container to workspace 10
 # cycle workspaces
 bindsym $mod+i workspace next
 bindsym $mod+u workspace prev
+bindsym $mod+Shift+i move container to workspace next
+bindsym $mod+Shift+u move container to workspace prev
+
+# back and forth
+bindsym $mod+Tab workspace back_and_forth
+
+# give window focus if it wants it
+focus_on_window_activation focus
 
 # start dropbox
 exec --no-startup-id dropbox start
@@ -66,8 +74,6 @@ set $browser_command            chromium
 set $email_command              thunderbird
 set $irc_command                hexchat
 set $lock_command               "i3lock -c 002b36"
-
-
 
 # class found with `xprop`
 assign [class="jetbrains-idea-ce"] $ws4

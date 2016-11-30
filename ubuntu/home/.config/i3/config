@@ -55,6 +55,12 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+i workspace next
 bindsym $mod+u workspace prev
 
+# back and forth
+bindsym $mod+Tab workspace back_and_forth
+
+# give window focus if it wants it
+focus_on_window_activation focus
+
 # start dropbox
 exec --no-startup-id dropbox start
 

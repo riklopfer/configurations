@@ -68,7 +68,7 @@ set $lock_command               "i3lock -c 002b36"
 
 # class found with `xprop`
 assign [class="jetbrains-idea-ce"] $ws3
-assign [class="chromium-browser"] $ws1
+assign [class="chromium"] $ws1
 
 # start applications in specific workspaces
 exec --no-startup-id i3-msg 'workspace $ws1; exec $browser_command; workspace $ws1'

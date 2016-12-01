@@ -1,30 +1,28 @@
 #!/usr/bin/env bash
 LOC=$(dirname $(readlink -f $0))
 
-function configure_id() {
+function do_configure() {
     if [ $1 ]; then
-        ID=$1
+        CONFIG_DIR=$1
 
         echo 
-        echo "Running $ID configuration"
+        echo "Installing configurations from $CONFIG_DIR"
         echo 
-        [ -f $LOC/$ID/pre_configure.sh ] && $LOC/$ID/pre_configure.sh
-        [ -d $LOC/$ID/home ] && $LOC/helper/link_configs.sh $LOC/$ID/home
-        [ -f $LOC/$ID/post_configure.sh ] && $LOC/$ID/post_configure.sh
+        [ -f $CONFIG_DIR/pre_configure.sh ] && $CONFIG_DIR/pre_configure.sh
+        [ -d $CONFIG_DIR/home ] && $LOC/helper/link_configs.sh $CONFIG_DIR/home
+        [ -f $CONFIG_DIR/post_configure.sh ] && $CONFIG_DIR/post_configure.sh
     fi
 }
 
-configure_id shared
+ROOT_DIR=$LOC/resources/configure
 
-if ! source /etc/os-release 2> /dev/null; then
-    echo "Cannot find /etc/os-release -- don't know how to proceed."
+do_configure $ROOT_DIR/shared
+
+HOST_DIR=$ROOT_DIR/host/$HOSTNAME 
+if ! [ -d $HOST_DIR ]; then 
+    echo "No configurations for host: '$HOSTNAME'"
     exit 1
 fi
 
-if ! [ -d $LOC/$ID ]; then 
-    echo "No configurations for OS: $ID"
-    exit 1
-fi
 
-
-configure_id $ID
+do_configure $HOST_DIR

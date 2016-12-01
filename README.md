@@ -6,7 +6,7 @@ A lot of the time, one will only want / need to run the configure script since m
 # Clone
 
 ```bash
-git clone https://github.com/riklopfer/configurations.git
+git clone https://github.com/riklopfer/rig.git
 ```
 
 # Execute bash scripts
@@ -19,7 +19,7 @@ git clone https://github.com/riklopfer/configurations.git
 ./configurations/configure.sh
 ```
 # Software installed
-This is a list of software that is currently installed via `debian_install.sh`. 
+This is a list of software that is currently installed via `install.sh`. 
 
   * Window Manger: [i3](https://i3wm.org/)
   * Terminal Emulator: [urxvt](http://software.schmorp.de/pkg/rxvt-unicode.html)

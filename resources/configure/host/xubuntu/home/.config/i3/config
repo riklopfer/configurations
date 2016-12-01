@@ -81,8 +81,9 @@ exec --no-startup-id i3-msg 'workspace $ws6; exec $irc_command; workspace $ws1'
 # back and forth
 bindsym $mod+Tab workspace back_and_forth
 
-# give window focus if it wants it
-focus_on_window_activation focus
+# focus
+focus_on_window_activation focus 
+focus_follows_mouse no
 
 # start dropbox
 exec --no-startup-id dropbox start

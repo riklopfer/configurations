@@ -186,8 +186,4 @@ function pullAll() {
     done
 }
 
-
-function mmvpn() {
-    sudo openconnect grn.mmodal.com -u russell.klopfer --authgroup=remote
-    bg >& /dev/null
-}
+alias mmvpn='pass show mmodal/vpn_remote | sudo openconnect -b grn.mmodal.com -u russell.klopfer --authgroup=remote'

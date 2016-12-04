@@ -17,7 +17,7 @@ function do_configure() {
 ROOT_DIR=$LOC/resources/configure
 
 # in case you want a collection of shared configurations
-[ -d $ROOT_DIR/shared ] && do_configure $ROOT_DIR/shared
+[ -d $ROOT_DIR/default ] && do_configure $ROOT_DIR/default
 
 HOST_DIR=$ROOT_DIR/host/$HOSTNAME 
 if ! [ -d $HOST_DIR ]; then 

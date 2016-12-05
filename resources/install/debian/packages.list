@@ -21,3 +21,4 @@ pass
 pulseaudio
 alsa-firmware-loaders
 alsa-utils
+curl

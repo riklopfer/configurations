@@ -140,6 +140,7 @@ export PROJECT_HOME=$HOME/PythonProjects
 
 export JAVA_HOME=/usr/lib/jvm/java-7-oracle
 export JYTHON_HOME=$HOME/jython2.7.1b3
+export PYTHONPATH=/home/rklopfer/ICBM
 
 # MModal specific
 export DEVTOOLS=$HOME/Work/scm/devTools

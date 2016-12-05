@@ -112,10 +112,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-if [ -d $HOME/bin ]; then
-    export PATH=$HOME/bin:$PATH
-fi
-
 alias s='subl'
 
 # enable programmable completion features (you don't need to enable
@@ -191,8 +187,4 @@ function pullAll() {
     done
 }
 
-
-function mmvpn() {
-    sudo openconnect grn.mmodal.com -u russell.klopfer --authgroup=remote
-    bg >& /dev/null
-}
+alias mmvpn='pass show mmodal/vpn_remote | sudo openconnect -b grn.mmodal.com -u russell.klopfer --authgroup=remote'

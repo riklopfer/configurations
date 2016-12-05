@@ -16,3 +16,9 @@ python
 python-pip
 htop
 openconnect
+gpg
+pass
+pulseaudio
+alsa-firmware-loaders
+alsa-utils
+curl

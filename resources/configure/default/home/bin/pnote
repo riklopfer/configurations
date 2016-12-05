@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+if [[ -z $1 ]]; then
+    echo "USAGE: pnote <some message>"
+    echo "Send notification via Pushover"
+    exit 1
+fi
+MESSAGE="$@"
+
+APP_PASS=pushover/pnote
+USER_PASS=pushover/user
+
+if [ -z $PNOTE_TOK ] || [ -z $PO_USER_TOK ]; then 
+    if ! hash pass >& /dev/null ; then
+        echo "'pass' not installed. Please install and configure $APP_PASS and $USER_PASS"
+        exit 1
+    fi
+    export PNOTE_TOK=$(pass show ${APP_PASS}) 
+    export PO_USER_TOK=$(pass show $USER_PASS) 
+fi
+
+curl -s \
+    -F "token=$PNOTE_TOK" \
+    -F "user=$PO_USER_TOK" \
+    -F "message=$MESSAGE" \
+    -F "title=$HOSTNAME" \
+    https://api.pushover.net/1/messages > /dev/null

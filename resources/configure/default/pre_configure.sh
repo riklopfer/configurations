@@ -12,7 +12,7 @@ scp git.klopfer.us:.privkey.asc $HOME/.privkey.asc || {
 	exit 1
 }
 
-gpg --import $HOME/.privkey.asc || {
+gpg2 --import $HOME/.privkey.asc || {
 	echo "Failed to import private key"
 	exit 1
 }

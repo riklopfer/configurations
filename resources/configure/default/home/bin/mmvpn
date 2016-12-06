@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+if pgrep openconnect > /dev/null ; then
+	echo "openconnect already running. killing it."
+	sudo pkill -2 openconnect
+else
+	pass show --clip vpn/mmodal
+	xclip -o -selection clipboard | sudo openconnect -b grn.mmodal.com -u russell.klopfer --authgroup=remote
+fi

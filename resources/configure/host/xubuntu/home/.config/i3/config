@@ -21,10 +21,10 @@ exec synclient TouchpadOff=1
 
 # Workspace names
 set $ws1 1:web
-set $ws2 2:cmd
-set $ws3 3:ide
-set $ws4 4:cmd
-set $ws5 5:subl
+set $ws2 2:subl
+set $ws3 3:cmd
+set $ws4 4:ide
+set $ws5 5:cmd
 set $ws6 6:irc
 
 # switch to workspace
@@ -67,15 +67,15 @@ set $irc_command                hexchat
 set $lock_command               "i3lock -c 002b36"
 
 # class found with `xprop`
-assign [class="jetbrains-idea-ce"] $ws3
+assign [class="jetbrains-idea-ce"] $ws4
 assign [class="chromium-browser"] $ws1
 
 # start applications in specific workspaces
 exec --no-startup-id i3-msg 'workspace $ws1; exec $browser_command; workspace $ws1'
-exec --no-startup-id i3-msg 'workspace $ws2; exec $terminal_command; workspace $ws1'
-exec --no-startup-id i3-msg 'workspace $ws3; exec $ide_command; workspace $ws1'
-exec --no-startup-id i3-msg 'workspace $ws4; exec $terminal_command; workspace $ws1'
-exec --no-startup-id i3-msg 'workspace $ws5; exec $text_editor_command; workspace $ws1'
+exec --no-startup-id i3-msg 'workspace $ws2; exec $text_editor_command; workspace $ws1'
+exec --no-startup-id i3-msg 'workspace $ws3; exec $terminal_command; workspace $ws1'
+exec --no-startup-id i3-msg 'workspace $ws4; exec $ide_command; workspace $ws1'
+exec --no-startup-id i3-msg 'workspace $ws5; exec $terminal_command; workspace $ws1'
 exec --no-startup-id i3-msg 'workspace $ws6; exec $irc_command; workspace $ws1'
 
 # back and forth
@@ -127,7 +127,7 @@ floating_modifier $mod
 bindsym $mod+grave exec $terminal_command
 
 # kill focused window
-bindsym $mod+q kill
+bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run

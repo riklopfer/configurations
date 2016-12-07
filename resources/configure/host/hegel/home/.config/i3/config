@@ -78,6 +78,9 @@ exec --no-startup-id i3-msg 'workspace $ws4; exec $ide_command; workspace $ws1'
 exec --no-startup-id i3-msg 'workspace $ws5; exec $terminal_command; workspace $ws1'
 exec --no-startup-id i3-msg 'workspace $ws6; exec $irc_command; workspace $ws1'
 
+# pop ups (e.g. idea)
+popup_during_fullscreen leave_fullscreen
+
 # back and forth
 bindsym $mod+Tab workspace back_and_forth
 

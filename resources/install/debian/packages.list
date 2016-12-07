@@ -22,3 +22,6 @@ pulseaudio
 alsa-firmware-loaders
 alsa-utils
 curl
+mutt
+abook
+w3m

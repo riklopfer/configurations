@@ -1,3 +1,7 @@
+# colors
+source ~/.mutt/colors
+
+# klopfer.us settings
 set imap_user = "russell@klopfer.us"
 set imap_pass = `pass show mail/russell@klopfer.us`
 

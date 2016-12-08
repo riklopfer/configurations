@@ -1,39 +1,6 @@
 # colors
 source ~/.mutt/colors
 
-# klopfer.us settings
-set imap_user = "russell@klopfer.us"
-set imap_pass = `pass show mail/russell@klopfer.us`
-
-# Automatically log in to this mailbox at startup
-set spoolfile="imaps://box.klopfer.us:993/"
-set folder="imaps://box.klopfer.us/"
-set record="=Sent Messages"
-set postponed="=Drafts"
-
-set smtp_url = "smtp://$imap_user@box.klopfer.us:587/"
-set smtp_pass = "$imap_pass"
-
-set from = "russell@klopfer.us"
-set realname = "Russell Irving Klopfer, IV"
-
-# activate TLS if available on the server
-set ssl_starttls=yes
-# always use SSL when connecting to a server
-set ssl_force_tls=yes
-# wait to enter mailbox manually
-set imap_passive
-# Automatically poll subscribed mailboxes for new mail (new in 1.5.11)
-set imap_check_subscribed
-# Reduce polling frequency to a sane level
-set mail_check=60
-# And poll the current mailbox more often (not needed with IDLE in post 1.5.11)
-set timeout=10
-# keep a cache of headers for faster loading (1.5.9+?)
-set header_cache=~/.hcache
-# Display download progress every 5K
-set net_inc=5
-
 # Use abook with Mutt
 set query_command="abook --mutt-query '%s'"
 macro index a     "|abook --add-email\n" 'add sender to abook'
@@ -42,3 +9,16 @@ macro pager a     "|abook --add-email\n" 'add sender to abook'
 # html rendering from http://jasonwryan.com/blog/2012/05/12/mutt/
 auto_view text/html                                      # view html automatically
 alternative_order text/plain text/enriched text/html     # save html for last
+
+# default account
+source ~/.mutt/accounts/us.klopfer.russell
+
+# Macros for switching accounts
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/accounts/us.klopfer.russell<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/accounts/com.mmodal.rklopfer<enter><change-folder>!<enter>'
+
+# Fetch mail shortcut
+bind index G imap-fetch-mail
+
+# caches
+set header_cache = ~/.cache/mutt

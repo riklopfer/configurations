@@ -1,0 +1,33 @@
+# accound id
+set my_account_id = "us.klopfer.russell"
+
+# klopfer.us settings
+set imap_user = "russell@klopfer.us"
+set imap_pass = `pass show mail/russell@klopfer.us`
+
+# Automatically log in to this mailbox at startup
+set spoolfile="imaps://box.klopfer.us:993/"
+set folder="imaps://box.klopfer.us/"
+set record="=Sent Messages"
+set postponed="=Drafts"
+
+set smtp_url = "smtp://$imap_user@box.klopfer.us:587/"
+set smtp_pass = "$imap_pass"
+
+set from = $imap_user
+set realname = "Russell Irving Klopfer, IV"
+
+# activate TLS if available on the server
+set ssl_starttls=yes
+# always use SSL when connecting to a server
+set ssl_force_tls=yes
+# wait to enter mailbox manually
+set imap_passive
+# Automatically poll subscribed mailboxes for new mail (new in 1.5.11)
+set imap_check_subscribed
+# Reduce polling frequency to a sane level
+set mail_check=60
+# And poll the current mailbox more often (not needed with IDLE in post 1.5.11)
+set timeout=10
+# Display download progress every 5K
+set net_inc=5

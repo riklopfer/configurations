@@ -24,7 +24,6 @@ if ! [ -d $BASE_DIR/$ID ]; then
     exit 1
 fi
 
-echo "$BASE_DIR/$ID/pre_install.sh"
 [ -f $BASE_DIR/$ID/pre_install.sh ] && $BASE_DIR/$ID/pre_install.sh
 
 echo 

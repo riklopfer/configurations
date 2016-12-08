@@ -1,6 +1,7 @@
 #/usr/bin/env bash
 echo
-echo "Running pre-install script"
+echo "Running pre install script: $0"
+echo 
 
 # add backports repository
 source /etc/os-release

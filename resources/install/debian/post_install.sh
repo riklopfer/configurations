@@ -12,6 +12,7 @@ echo
 
 # sublime text
 if ! dpkg -s sublime-text >& /dev/null ; then
+	echo "Installing sublime text"
 	# install 
 	if ! [ -f /tmp/sublime-text.deb ]; then
 	    wget https://download.sublimetext.com/sublime-text_build-3126_amd64.deb -O /tmp/sublime-text.deb
@@ -24,6 +25,7 @@ fi
 
 # dropbox
 if ! dpkg -s dropbox >& /dev/null ; then
+	echo "Installing dropbox"
 	if ! [ -f /tmp/dropbox.deb ]; then
 	    wget https://www.dropbox.com/download?dl=packages/debian/dropbox_2015.10.28_amd64.deb -O /tmp/dropbox.deb
 	fi

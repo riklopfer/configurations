@@ -34,7 +34,7 @@ grep -v '^#' < $BASE_DIR/$ID/packages.list | {
     if ! [ $PACKAGE ]; then
       continue
     fi
-    $BASE_DIR/$ID/install.sh $DASH_Y $PACKAGE || exit 1
+    $BASE_DIR/$ID/installpkg.sh $DASH_Y $PACKAGE || exit 1
   done 
 }
 

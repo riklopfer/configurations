@@ -13,8 +13,8 @@ EOF
 ) > $HOME/.pastebinit.xml
 
 # Xorg.conf
-echo "Generating Xorg config"
 if ! [ -e /etc/X11/Xorg.conf ]; then
+	echo "Generating Xorg config"
 	sudo Xorg -configure 
 	sudo cp /root/xorg.conf.new /etc/X11/xorg.conf 
 fi

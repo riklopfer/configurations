@@ -12,6 +12,13 @@ cat << EOF
 EOF
 ) > $HOME/.pastebinit.xml
 
+# Xorg.conf
+echo "Generating Xorg config"
+if ! [ -e /etc/X11/Xorg.conf ]; then
+	sudo Xorg -configure 
+	sudo cp /root/xorg.conf.new /etc/X11/xorg.conf 
+fi
+
 # apply Xresources changes
 xrdb -merge $HOME/.Xresources
 

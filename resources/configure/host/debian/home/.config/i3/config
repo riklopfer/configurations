@@ -16,6 +16,8 @@ set $mod4 Mod4
 # rklopfer
 #######
 
+exec --no-startup-id i3-msg 'exec dunst -config $HOME/.config/dunst/dunstrc'
+
 # Disable trackpad
 exec synclient TouchpadOff=1
 

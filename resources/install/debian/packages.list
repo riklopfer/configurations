@@ -1,27 +1,47 @@
+# window manager
 xorg
 i3
 i3status
 libanyevent-i3-perl
 xautolock
+
+# notifications
 dunst
+dbus-x11
+dbus-user-session
+libnotify-bin
+
+# networking
 network-manager
-git
 chromium
 hexchat
-task
+openconnect
+curl
+
+# terminal
 rxvt-unicode-256color 
 ncurses-term 
 fonts-inconsolata
-python 
-python-pip
 htop
-openconnect
-gpg
-pass
+
+# audio
 pulseaudio
 alsa-firmware-loaders
 alsa-utils
-curl
+
+# development
+git
+python 
+python-pip
+
+# encryption / passwords
+gpg
+pass
+
+# email
 mutt
 abook
 w3m
+
+# utils
+task

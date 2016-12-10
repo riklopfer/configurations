@@ -29,9 +29,13 @@ fi
 echo 
 echo "Installing packages for $ID"
 echo 
-for PACKAGE in $(cat $BASE_DIR/$ID/packages.list); do
-  $BASE_DIR/$ID/install.sh $DASH_Y $PACKAGE || exit 1
-done
-
+grep -v '^#' < $BASE_DIR/$ID/packages.list | { 
+  while read PACKAGE; do
+    if ! [ $PACKAGE ]; then
+      continue
+    fi
+    $BASE_DIR/$ID/install.sh $DASH_Y $PACKAGE || exit 1
+  done 
+}
 
 [ -f $BASE_DIR/$ID/post_install.sh ] && $BASE_DIR/$ID/post_install.sh

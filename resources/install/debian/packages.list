@@ -33,6 +33,7 @@ alsa-utils
 git
 python 
 python-pip
+default-jdk-headless
 
 # encryption / passwords
 gpg

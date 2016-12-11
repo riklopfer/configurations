@@ -13,14 +13,16 @@ git clone https://github.com/riklopfer/rig.git
 
 ```bash
 # this installs software
-./configurations/install.sh
+./rig/install.sh
 
 # this creates links from the cloned git reposity to $HOME 
-./configurations/configure.sh
+./rig/configure.sh
 ```
-# Software installed
-This is a list of software that is currently installed via `install.sh`. 
 
+# Software installed
+Currently, [debian](resources/install/debian) contains he most up-to-date [packages.list](resources/install/debian/packages.list). This will install everything you need starting from a base system (no desktop).
+
+Here are some highlights from [packages.list](resources/intall/debian/packages.list)
   * Window Manger: [i3](https://i3wm.org/)
   * Terminal Emulator: [urxvt](http://software.schmorp.de/pkg/rxvt-unicode.html)
   * Text Editor: [sublime-text](https://www.sublimetext.com/3)
@@ -28,23 +30,14 @@ This is a list of software that is currently installed via `install.sh`.
   * Python: 
     * [pip](https://en.wikipedia.org/wiki/Pip_(package_manager))
       * [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/)
+  * Java 8
 
-# Configuration files provided
-Not all configuration files are used -- e.g. terminator. 
 
-  * i3
-    * `.config/i3/config`
-    * `.config/i3status/config`
-  * urxvt
-    * `.Xresources`
-  * terminator
-    * `.config/terminator/config`
-  * bash
-    * `.bashrc`
-    * `.pastebinit.xml`
 
-# Things to add
-These things should probably be added.
+# Configuration files 
 
-  * java
-  * intellij
+Configurations are separated into [default](resources/configure/default) and [host-specific](resources/configure/host) configuration files. The default configurations are installed for all hosts then overwritten by the host-specifc configuration files. 
+
+# TODO
+
+ * automatically install intellij

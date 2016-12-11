@@ -1,8 +1,6 @@
 # rig
 
-This repo contains `install.sh` which installs software under different Linux distributions. It also contians a separate `configure.sh` wihch creates symbolic links in your `$HOME` directory which point to the configuration files in the repository. This way you can track changes to your configurations and also publish useful information for others to find. :)
-
-A lot of the time, one will only want / need to run the configure script since much of the software is already installed. 
+This repo contains `install.sh` which installs software under different Linux distributions. It also contians a separate `configure.sh` wihch creates symbolic links in your `$HOME` directory which point to the configuration files in the repository. This way you can track changes to your configurations and also publish useful information for others to find. Additionally, you don't have to worry as much when moving to a new machine because you can just reclone and rerun the set up scripts. 
 
 # Clone
 
@@ -18,6 +16,12 @@ git clone https://github.com/riklopfer/rig.git
 
 # this creates links from the cloned git reposity to $HOME 
 ./rig/configure.sh
+```
+
+Running these setup scripts multiple times should not change the final state of the machine. However, if configurations were removed or renamed, it will leave some orphaned links. Those can be removed with the following command:
+
+```bash
+find -L ~/ -type l -delete
 ```
 
 # Software installed

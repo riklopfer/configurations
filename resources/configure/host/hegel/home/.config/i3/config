@@ -57,13 +57,14 @@ set $terminal_command           urxvtcd
 set $text_editor_command        subl
 set $ide_command                idea
 set $browser_command            chromium
-set $mail_command               "urxvtcd -e mutt"
+set $mail_command               geary
 set $irc_command                hexchat
 set $lock_command               "i3lock -c 002b36"
 
 # class found with `xprop`
 assign [class="jetbrains-idea-ce"] $ws4
 assign [class="chromium"] $ws1
+assign [class="chromium" instance="WebMail"] $ws7
 
 # start applications in specific workspaces
 exec --no-startup-id i3-msg 'workspace $ws1; exec $browser_command; workspace $ws1'
@@ -81,7 +82,9 @@ bindsym $mod+Shift+i move container to workspace next
 bindsym $mod+Shift+u move container to workspace prev
 
 # pop ups (e.g. idea)
-popup_during_fullscreen leave_fullscreen
+for_window [class="jetbrains-idea-ce" instance="sun-awt-X11-XDialogPeer"] floating enable
+
+# popup_during_fullscreen smart
 
 # back and forth
 bindsym $mod+Tab workspace back_and_forth

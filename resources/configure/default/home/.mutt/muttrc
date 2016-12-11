@@ -16,6 +16,7 @@ source ~/.mutt/accounts/us.klopfer.russell
 # Macros for switching accounts
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/accounts/us.klopfer.russell<enter><change-folder>!<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/accounts/com.mmodal.rklopfer<enter><change-folder>!<enter>'
+macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/accounts/com.gmail.klopfer.russell<enter><change-folder>!<enter>'
 
 # Fetch mail shortcut
 bind index G imap-fetch-mail

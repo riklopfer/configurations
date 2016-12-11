@@ -1,0 +1,33 @@
+# accound id
+set my_account_id = "com.gmail.klopfer.russell"
+
+# klopfer.us settings
+set imap_user = "russell.klopfer@gmail.com"
+set imap_pass = `pass show mail/russell.klopfer@gmail.com`
+
+# Automatically log in to this mailbox at startup
+set folder="imaps://imap.gmail.com/"
+set spoolfile = +INBOX
+set record = "+[Gmail]/Sent Mail"
+set postponed = "+[Gmail]/Drafts"
+
+set smtp_url = "smtps://russell.klopfer@smtp.gmail.com"
+set smtp_pass = "$imap_pass"
+
+set from = $imap_user
+set realname = "Russell Irving Klopfer, IV"
+
+# activate TLS if available on the server
+set ssl_starttls=yes
+# always use SSL when connecting to a server
+set ssl_force_tls=yes
+# wait to enter mailbox manually
+set imap_passive
+# Automatically poll subscribed mailboxes for new mail (new in 1.5.11)
+set imap_check_subscribed
+# Reduce polling frequency to a sane level
+set mail_check=60
+# And poll the current mailbox more often (not needed with IDLE in post 1.5.11)
+set timeout=10
+# Display download progress every 5K
+set net_inc=5

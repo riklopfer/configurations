@@ -33,7 +33,8 @@ alsa-utils
 git
 python 
 python-pip
-default-jdk-headless
+openjdk-8-jdk-headless
+--no-install-recommends openjdk-8-source
 
 # encryption / passwords
 gpg

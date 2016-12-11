@@ -31,7 +31,7 @@ echo "Installing packages for $ID"
 echo 
 grep -v '^#' < $BASE_DIR/$ID/packages.list | { 
   while read PACKAGE; do
-    if ! [ $PACKAGE ]; then
+    if ! [ "$PACKAGE" ]; then
       continue
     fi
     $BASE_DIR/$ID/installpkg.sh $DASH_Y $PACKAGE || exit 1

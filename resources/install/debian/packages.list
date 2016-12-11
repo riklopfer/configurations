@@ -34,19 +34,18 @@ git
 python 
 python-pip
 openjdk-8-jdk-headless
---no-install-recommends openjdk-8-source
+openjdk-8-source --no-install-recommends 
 
 # encryption / passwords
-gpg
+gnupg2
 pass
 
 # email
-mutt
-abook
-w3m
+#mutt abook w3m
+geary
 
 # utils
 task
 
-# laptop 
+# brightness control 
 xbacklight

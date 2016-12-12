@@ -73,7 +73,7 @@ set $terminal_command           urxvtcd
 set $text_editor_command        subl
 set $ide_command                idea
 set $browser_command            chromium
-set $email_command              thunderbird
+set $email_command              geary
 set $irc_command                hexchat
 set $lock_command               "i3lock -c 002b36"
 

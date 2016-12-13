@@ -12,6 +12,7 @@ dbus-user-session
 libnotify-bin
 
 # networking
+ntp
 network-manager
 chromium
 hexchat

@@ -17,6 +17,7 @@ network-manager
 chromium
 hexchat
 openconnect
+netselect-apt
 curl
 
 # terminal

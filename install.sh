@@ -20,11 +20,11 @@ fi
 
 BASE_DIR=$LOC/resources/install
 if ! [ -d $BASE_DIR/$ID ]; then 
-    echo "No configurations for OS: $ID"
+    echo "No install scripts for OS: $ID"
     exit 1
 fi
 
-[ -f $BASE_DIR/$ID/pre_install.sh ] && $BASE_DIR/$ID/pre_install.sh
+[ -f $BASE_DIR/$ID/pre_install.sh ] && . $BASE_DIR/$ID/pre_install.sh
 
 echo 
 echo "Installing packages for $ID"
@@ -34,8 +34,8 @@ grep -v '^#' < $BASE_DIR/$ID/packages.list | {
     if ! [ "$PACKAGE" ]; then
       continue
     fi
-    $BASE_DIR/$ID/installpkg.sh $DASH_Y $PACKAGE || exit 1
+    . $BASE_DIR/$ID/installpkg.sh $DASH_Y $PACKAGE || exit 1
   done 
 }
 
-[ -f $BASE_DIR/$ID/post_install.sh ] && $BASE_DIR/$ID/post_install.sh
+[ -f $BASE_DIR/$ID/post_install.sh ] && . $BASE_DIR/$ID/post_install.sh

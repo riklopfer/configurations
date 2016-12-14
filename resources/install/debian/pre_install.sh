@@ -3,17 +3,21 @@ echo
 echo "Running pre install script: $0"
 echo 
 
-# add backports repository
-source /etc/os-release
-case $VERSION_ID in
-    8) 
-    ! [ -f /etc/apt/sources.list.d/jessie-backports.list ] && {
-        echo "deb http://httpredir.debian.org/debian jessie-backports main contrib non-free" | sudo tee /etc/apt/sources.list.d/jessie-backports.list
-    }
-    ;;
-    *)
-    echo "Not using backports for version $VERSION_ID"
-    ;;
-esac
+sudo apt-get update || { 
+	echo "FAILED TO UPDATE"
+	exit 1
+}
+sudo apt-get install wget curl || {
+	echo "FAILED TO INSTALL BASIC NET UTILS"
+	exit 1
+}
 
-sudo apt update
+# update to sid! 
+sudo netselect-apt sid -no /etc/apt/sources.list || {
+	echo "Failed to update to sid... continuing"
+}
+
+sudo apt-get update || {
+	echo "FAILED TO UPDATE"
+	exit 1
+}

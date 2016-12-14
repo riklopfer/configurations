@@ -82,6 +82,7 @@ bindsym $mod+Shift+u move container to workspace prev
 
 # pop ups (e.g. idea)
 for_window [class="jetbrains-idea-ce" instance="sun-awt-X11-XDialogPeer"] floating enable
+for_window [instance="gcr-prompter"] focus
 
 # popup_during_fullscreen smart
 
@@ -108,6 +109,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 1 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 1 # decrease screen brightness
+
+hide_edge_borders both
 
 ##########
 

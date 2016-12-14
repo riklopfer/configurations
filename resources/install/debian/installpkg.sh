@@ -23,11 +23,8 @@ fi
 
 source /etc/os-release
 case $VERSION_ID in
-    8) 
-    sudo apt-get -t jessie-backports install $DASH_Y "$@"
-    ;;
     *)
-    sudo apt-get install $DASH_Y "$@"
+    sudo apt-get install $DASH_Y "$@" || exit 1
     ;;
     
 esac

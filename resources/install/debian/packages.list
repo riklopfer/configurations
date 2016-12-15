@@ -4,6 +4,7 @@ i3
 i3status
 libanyevent-i3-perl
 xautolock
+rofi
 
 # notifications
 dunst

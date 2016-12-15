@@ -42,3 +42,10 @@ URxvt.clipboard.autocopy: true
 
 URxvt.intensityStyles: false
 
+!!
+!! rofi settings
+!!
+rofi.ssh-client:                     ssh
+rofi.ssh-command:                    {terminal} -hold -e {ssh-client} {host}
+rofi.kb-mode-next:                   Alt+d
+

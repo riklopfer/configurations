@@ -3,7 +3,7 @@
 !!
 
 #include ".config/colors/solarized-dark.xresources"
-#include ".config/colors/rofi-purple.xresources"
+#include ".config/colors/rofi-lb.xresources"
 
 !! 
 !! font rendering

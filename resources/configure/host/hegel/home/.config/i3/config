@@ -94,6 +94,9 @@ focus_on_window_activation focus
 focus_follows_mouse no
 
 # start dropbox
+exec --no-startup-id nm-applet
+
+# start dropbox
 exec --no-startup-id dropbox start
 
 # screen locking

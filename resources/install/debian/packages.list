@@ -15,6 +15,7 @@ libnotify-bin
 # networking
 ntp
 network-manager
+network-manager-gnome
 chromium
 hexchat
 openconnect

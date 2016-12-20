@@ -1,15 +1,35 @@
+# window manager
 xorg
 i3
 i3status
 libanyevent-i3-perl
 xautolock
-network-manager
-chromium-browser
-surf
-task
+rofi
+
+# notifications
 dunst
+dbus-x11
+dbus-user-session
+libnotify-bin
+
+# terminal
 rxvt-unicode-256color 
 ncurses-term 
 fonts-inconsolata
+htop
+
+# development
+git
+tortoisehg
 python 
 python-pip
+openjdk-8-jdk-headless
+openjdk-8-source --no-install-recommends
+
+# encryption / passwords
+gnupg2
+pass
+
+# utils
+task
+thunar-dropbox-plugin

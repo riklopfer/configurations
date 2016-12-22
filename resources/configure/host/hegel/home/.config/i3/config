@@ -61,6 +61,15 @@ set $lock_command               "i3lock -c 002b36"
 assign [class="jetbrains-idea-ce"] $ws4
 assign [instance="chromium"] $ws1
 
+# pop ups (e.g. idea)
+for_window [class="jetbrains-idea-ce" instance="sun-awt-X11-XDialogPeer"] floating enable
+for_window [instance="gcr-prompter"] focus
+for_window [title="Profile error occurred"] floating enable
+
+# popup_during_fullscreen smart
+
+for_window [instance="chromium"] border none
+
 # start applications in specific workspaces
 exec --no-startup-id i3-msg 'workspace $ws1; exec $browser_command; workspace $ws1'
 exec --no-startup-id i3-msg 'workspace $ws2; exec $text_editor_command; workspace $ws1'
@@ -75,13 +84,6 @@ bindsym $mod+i workspace next
 bindsym $mod+u workspace prev
 bindsym $mod+Shift+i move container to workspace next
 bindsym $mod+Shift+u move container to workspace prev
-
-# pop ups (e.g. idea)
-for_window [class="jetbrains-idea-ce" instance="sun-awt-X11-XDialogPeer"] floating enable
-for_window [instance="gcr-prompter"] focus
-for_window [title="Profile error occurred"] floating enable
-
-# popup_during_fullscreen smart
 
 # back and forth
 bindsym $mod+Tab workspace back_and_forth

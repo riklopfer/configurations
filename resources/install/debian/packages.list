@@ -50,6 +50,7 @@ geary
 
 # utils
 task
+mpv
 
 # brightness control 
 xbacklight

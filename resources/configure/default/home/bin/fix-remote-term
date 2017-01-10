@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 [ -z ${1} ] && { 
-    echo "USAGE: $0 <remote host>"
+    echo "USAGE: $0 <remote host> [remote home dir]"
     exit 1 
 }
+REMOTE_HOME=~
+[ ${2} ] && REMOTE_HOME=$2
 
-ssh $1 mkdir -p ~/.terminfo/r/
-scp /usr/share/terminfo/r/rxvt-unicode-256color "$1":~/.terminfo/r/
+ssh $1 mkdir -p $REMOTE_HOME/.terminfo/r/ && \
+scp /usr/share/terminfo/r/rxvt-unicode-256color "$1":$REMOTE_HOME/.terminfo/r/

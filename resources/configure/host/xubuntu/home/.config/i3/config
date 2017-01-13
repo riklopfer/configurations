@@ -234,6 +234,8 @@ bar {
         tray_output primary
 }
 
+hide_edge_borders both
+
 ##
 # Window Colors
 ##

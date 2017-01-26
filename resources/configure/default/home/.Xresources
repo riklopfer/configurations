@@ -47,5 +47,5 @@ URxvt.intensityStyles: false
 !!
 rofi.ssh-client:                     ssh
 rofi.ssh-command:                    {terminal} -hold -e {ssh-client} {host}
-rofi.kb-mode-next:                   Alt+d
+rofi.kb-mode-next:                   Alt+p
 

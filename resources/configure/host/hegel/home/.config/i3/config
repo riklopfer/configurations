@@ -52,7 +52,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 set $terminal_command           urxvtcd
 set $text_editor_command        subl
 set $ide_command                idea
-set $browser_command            chromium
+set $browser_command            chromium --enable-remote-extensions
 set $mail_command               geary
 set $irc_command                hexchat
 set $lock_command               "i3lock -c 002b36"
@@ -76,7 +76,7 @@ exec --no-startup-id i3-msg 'workspace $ws2; exec $text_editor_command; workspac
 exec --no-startup-id i3-msg 'workspace $ws3; exec $terminal_command; workspace $ws1'
 exec --no-startup-id i3-msg 'workspace $ws4; exec $ide_command; workspace $ws1'
 exec --no-startup-id i3-msg 'workspace $ws5; exec $terminal_command; workspace $ws1'
-exec --no-startup-id i3-msg 'workspace $ws6; exec $irc_command; workspace $ws1'
+#exec --no-startup-id i3-msg 'workspace $ws6; exec $irc_command; workspace $ws1'
 exec --no-startup-id i3-msg 'workspace $ws7; exec $mail_command; workspace $ws1'
 
 # cycle workspaces
@@ -141,7 +141,8 @@ bindsym $mod+grave exec $terminal_command
 bindsym $mod+Shift+q kill
 
 # launcher
-bindsym $mod+p exec --no-startup-id i3-dmenu-desktop -dmenu='rofi -dmenu'
+# bindsym $mod+p exec --no-startup-id i3-dmenu-desktop -dmenu='rofi -dmenu'
+bindsym $mod+p exec --no-startup-id "rofi -show run -modi run,window,ssh"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that

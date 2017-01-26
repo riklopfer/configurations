@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+SAMPLE_RATE=60
+while true
+do
+    activ_win_id=`xprop -root _NET_ACTIVE_WINDOW`
+    if xprop -id ${activ_win_id:40:9} | grep _NET_WM_STATE_FULLSCREEN >& /dev/null 
+    then
+    	echo "FULL SCREEN"
+    	xset -dpms
+    	xautolock -disable
+    else
+    	echo "NOT FULL SCREEN"
+    	xautolock -enable
+        xset +dpms
+    fi
+
+    sleep $SAMPLE_RATE
+done

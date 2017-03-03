@@ -5,11 +5,11 @@ do
     activ_win_id=`xprop -root _NET_ACTIVE_WINDOW`
     if xprop -id ${activ_win_id:40:9} | grep _NET_WM_STATE_FULLSCREEN >& /dev/null 
     then
-    	echo "FULL SCREEN"
+    	# echo "FULL SCREEN"
     	xset -dpms
     	xautolock -disable
     else
-    	echo "NOT FULL SCREEN"
+    	# echo "NOT FULL SCREEN"
     	xautolock -enable
         xset +dpms
     fi

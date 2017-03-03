@@ -100,7 +100,8 @@ exec --no-startup-id dropbox start
 
 # screen locking
 bindsym $windows+Escape exec $lock_command
-exec --no-startup-id xautolock -time 3 -locker $lock_command
+#exec --no-startup-id xautolock -time 3 -locker $lock_command
+#exec --no-startup-id $HOME/bin/lightsOn
 
 # from https://faq.i3wm.org/question/3747/enabling-multimedia-keys.1.html
 # Pulse Audio controls

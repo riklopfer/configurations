@@ -134,7 +134,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/PythonProjects
 
-export JAVA_HOME=/usr/lib/jvm/java-8-oracle/
+export JAVA_HOME=/usr/lib/jvm/default-java
 export JYTHON_HOME=$HOME/jython2.7.1b3
 export PYTHONPATH=/home/rklopfer/Work/scm/ICBM
 

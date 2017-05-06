@@ -15,11 +15,11 @@ if ! dpkg -s sublime-text >& /dev/null ; then
 	echo "Installing sublime text"
 	# install 
 	if ! [ -f /tmp/sublime-text.deb ]; then
-	    wget https://download.sublimetext.com/sublime-text_build-3126_amd64.deb -O /tmp/sublime-text.deb
+		wget https://download.sublimetext.com/sublime-text_build-3126_amd64.deb -O /tmp/sublime-text.deb
 	fi
 	sudo dpkg -i /tmp/sublime-text.deb || {
-	    echo "FAILED TO INSTALL SUBLIME TEXT"
-	    exit 1
+		echo "Failed to install SUBLIME TEXT"
+		exit 1
 	}
 fi 
 
@@ -27,13 +27,13 @@ fi
 if ! dpkg -s dropbox >& /dev/null ; then
 	echo "Installing dropbox"
 	if ! [ -f /tmp/dropbox.deb ]; then
-	    wget https://www.dropbox.com/download?dl=packages/debian/dropbox_2015.10.28_amd64.deb -O /tmp/dropbox.deb
+		wget https://www.dropbox.com/download?dl=packages/debian/dropbox_2015.10.28_amd64.deb -O /tmp/dropbox.deb
 	fi
 	sudo dpkg -i /tmp/dropbox.deb || {
-	    sudo apt-get -f install -y || {
-	        echo "FAILED TO INSTALL DROPBOX"
-	        exit 1
-	    }
+		sudo apt-get -f install -y || {
+			echo "Failed to install DROPBOX"
+			exit 1
+		}
 	}
 fi
 
@@ -41,8 +41,16 @@ fi
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $(which urxvtcd) 100
 
 sudo update-alternatives --set x-terminal-emulator $(which urxvtcd) || {
-    echo "FAILED TO UPDATE ALTERNATIVES with '$(which urxvtcd) '"
+	echo "Failed to update alternatives with '$(which urxvtcd) '"
 }
 
 # upgrade pip and virtual env wrapper
-sudo pip install -U pip virtualenvwrapper || exit 1
+sudo pip install -U pip virtualenvwrapper || {
+	echo "Failed to install virtualenvwrapper and pip"
+}
+
+wget http://repo1.maven.org/maven2/org/python/jython-installer/2.7.1b3/jython-installer-2.7.1b3.jar \
+						-O /tmp/jython-installer.jar && \
+						java -jar /tmp/jython-installer.jar -s -d $HOME/jython || {
+							echo "Failed to install jython"
+						}

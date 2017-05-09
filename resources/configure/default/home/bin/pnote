@@ -9,22 +9,16 @@ MESSAGE="$@"
 APP_PASS=pushover/pnote
 USER_PASS=pushover/user
 
-get_password() {
-    if [ $1 ]; then
-        pass show --clip $1 >& /dev/null
-        xclip -o -selection clipboard
-    fi
-}
-
-
-if [ -z $PNOTE_TOK ] || [ -z $PO_USER_TOK ]; then 
-    if ! hash pass >& /dev/null ; then
-        echo "'pass' not installed. Please install and configure $APP_PASS and $USER_PASS"
-        exit 1
-    fi
-    PNOTE_TOK=$(get_password $APP_PASS)
-    PO_USER_TOK=$(get_password $USER_PASS) 
+if ! hash pass >& /dev/null ; then
+    echo "'pass' not installed. Please install and configure $APP_PASS and $USER_PASS"
+    exit 1
 fi
+
+pass show --clip $APP_PASS || exit 1
+PNOTE_TOK=$(xclip -o -selection clipboard)
+
+pass show --clip $USER_PASS || exit 1
+PO_USER_TOK=$(xclip -o -selection clipboard)
 
 curl -s \
     -F "token=$PNOTE_TOK" \

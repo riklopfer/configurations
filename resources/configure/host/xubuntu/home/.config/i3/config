@@ -71,7 +71,7 @@ set $irc_command                hexchat
 set $lock_command               "i3lock -c 002b36"
 
 # class found with `xprop`
-assign [class="jetbrains-idea-ce"] $ws4
+assign [class="jetbrains-idea-ce" instance="sun-awt-X11-XFramePeer"] $ws4
 assign [instance="chromium-browser"] $ws1
 
 # pop ups (e.g. idea)
@@ -86,7 +86,6 @@ exec --no-startup-id i3-msg 'workspace $ws2; exec $text_editor_command; workspac
 exec --no-startup-id i3-msg 'workspace $ws3; exec $terminal_command; workspace $ws1'
 exec --no-startup-id i3-msg 'workspace $ws4; exec $ide_command; workspace $ws1'
 exec --no-startup-id i3-msg 'workspace $ws5; exec $terminal_command; workspace $ws1'
-exec --no-startup-id i3-msg 'workspace $ws6; exec $irc_command; workspace $ws1'
 
 # back and forth
 bindsym $mod+Tab workspace back_and_forth

@@ -71,7 +71,7 @@ set $irc_command                hexchat
 set $lock_command               "i3lock -c 002b36"
 
 # class found with `xprop`
-assign [class="jetbrains-idea-ce" instance="sun-awt-X11-XFramePeer"] $ws4
+assign [class="jetbrains-idea-ce" title=".*IntelliJ IDEA.*"] $ws4
 assign [instance="chromium-browser"] $ws1
 
 # pop ups (e.g. idea)

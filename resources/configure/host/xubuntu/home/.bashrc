@@ -135,7 +135,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/PythonProjects
 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-export JYTHON_HOME=$HOME/jython2.7.1b3
+export JYTHON_HOME=$HOME/.jython_home
 export PYTHONPATH=$HOME/Work/scm/ICBM
 
 # MModal specific

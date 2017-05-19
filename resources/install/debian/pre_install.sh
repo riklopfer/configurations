@@ -7,8 +7,13 @@ sudo apt-get update || {
 	echo "FAILED TO UPDATE"
 	exit 1
 }
-sudo apt-get install wget curl || {
+sudo apt-get install -y wget curl || {
 	echo "FAILED TO INSTALL BASIC NET UTILS"
+	exit 1
+}
+
+sudo apt-get install -y netselect-apt || {
+	echo "FAILED TO INSTALL netselect-apt"
 	exit 1
 }
 

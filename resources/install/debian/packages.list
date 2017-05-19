@@ -35,10 +35,10 @@ alsa-utils
 
 # development
 git
+mercurial
 python 
 python-pip
-openjdk-8-jdk-headless
-openjdk-8-source --no-install-recommends 
+default-jdk
 
 # encryption / passwords
 gnupg2

@@ -37,20 +37,26 @@ if ! dpkg -s dropbox >& /dev/null ; then
 	}
 fi
 
-# update alternatives
-sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $(which urxvtcd) 100
+# install jython
+wget http://repo1.maven.org/maven2/org/python/jython-installer/2.7.1b3/jython-installer-2.7.1b3.jar \
+						-O /tmp/jython-installer.jar && \
+						java -jar /tmp/jython-installer.jar -s -d $HOME/.jython_home || {
+							echo "Failed to install jython"
+						}
 
-sudo update-alternatives --set x-terminal-emulator $(which urxvtcd) || {
-	echo "Failed to update alternatives with '$(which urxvtcd) '"
-}
+# update alternatives
+if hash urxvtcd 2>/dev/null; then
+	sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $(which urxvtcd) 100
+
+	sudo update-alternatives --set x-terminal-emulator $(which urxvtcd) || {
+		echo "Failed to update alternatives with '$(which urxvtcd) '"
+	}
+else
+	echo "urxvtcd not installed"
+fi
 
 # upgrade pip and virtual env wrapper
 sudo pip install -U pip virtualenvwrapper || {
 	echo "Failed to install virtualenvwrapper and pip"
 }
 
-wget http://repo1.maven.org/maven2/org/python/jython-installer/2.7.1b3/jython-installer-2.7.1b3.jar \
-						-O /tmp/jython-installer.jar && \
-						java -jar /tmp/jython-installer.jar -s -d $HOME/jython || {
-							echo "Failed to install jython"
-						}

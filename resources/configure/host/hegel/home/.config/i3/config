@@ -82,12 +82,6 @@ exec --no-startup-id i3-msg 'workspace $ws5; exec $terminal_command; workspace $
 #exec --no-startup-id i3-msg 'workspace $ws6; exec $irc_command; workspace $ws1'
 exec --no-startup-id i3-msg 'workspace $ws7; exec $mail_command; workspace $ws1'
 
-# cycle workspaces
-bindsym $mod+i workspace next
-bindsym $mod+u workspace prev
-bindsym $mod+Shift+i move container to workspace next
-bindsym $mod+Shift+u move container to workspace prev
-
 # back and forth
 bindsym $mod+Tab workspace back_and_forth
 
@@ -153,23 +147,27 @@ bindsym $mod+p exec --no-startup-id "rofi -show run -modi run,window,ssh"
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+## 
+# Navigation
+##
+
+# cycle workspaces
+bindsym $mod+u workspace prev
+bindsym $mod+o workspace next
+bindsym $mod+Shift+u move container to workspace prev
+bindsym $mod+Shift+o move container to workspace next
+
 # change focus
 bindsym $mod+j focus left
+bindsym $mod+l focus right
 bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
-#bindsym $mod+Left focus left
-#bindsym $mod+Down focus down
-#bindsym $mod+Up focus up
-#bindsym $mod+Right focus right
+bindsym $mod+i focus up
 
 # move focused window
 bindsym $mod+Shift+j move left
+bindsym $mod+Shift+l move right
 bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+i move up
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left

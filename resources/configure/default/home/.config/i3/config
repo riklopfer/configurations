@@ -21,11 +21,15 @@ exec synclient TouchpadOff=1
 
 # Workspace names
 set $ws1 1:web
-set $ws2 2:cmd
-set $ws3 3:ide
-set $ws4 4:cmd
-set $ws5 5:subl
-set $ws6 6:irc
+set $ws2 2:subl
+set $ws3 3:cmd
+set $ws4 4:ide
+set $ws5 5:cmd
+set $ws6 6:six
+set $ws7 7:seven
+set $ws8 8:eight
+set $ws9 9:nine
+set $ws10 10:ten
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -34,10 +38,10 @@ bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -46,10 +50,10 @@ bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 # cycle workspaces
 bindsym $mod+i workspace next
@@ -67,22 +71,28 @@ set $irc_command                hexchat
 set $lock_command               "i3lock -c 002b36"
 
 # class found with `xprop`
-assign [class="jetbrains-idea-ce"] $ws3
-assign [class="chromium-browser"] $ws1
+assign [class="jetbrains-idea-ce" title=".*IntelliJ IDEA.*"] $ws4
+assign [instance="chromium-browser"] $ws1
+
+# pop ups (e.g. idea)
+for_window [class="jetbrains-idea-ce" instance="sun-awt-X11-XDialogPeer"] floating enable
+
+# no border on chromium
+for_window [instance="chromium-browser"] border none
 
 # start applications in specific workspaces
 exec --no-startup-id i3-msg 'workspace $ws1; exec $browser_command; workspace $ws1'
-exec --no-startup-id i3-msg 'workspace $ws2; exec $terminal_command; workspace $ws1'
-exec --no-startup-id i3-msg 'workspace $ws3; exec $ide_command; workspace $ws1'
-exec --no-startup-id i3-msg 'workspace $ws4; exec $terminal_command; workspace $ws1'
-exec --no-startup-id i3-msg 'workspace $ws5; exec $text_editor_command; workspace $ws1'
-exec --no-startup-id i3-msg 'workspace $ws6; exec $irc_command; workspace $ws1'
+exec --no-startup-id i3-msg 'workspace $ws2; exec $text_editor_command; workspace $ws1'
+exec --no-startup-id i3-msg 'workspace $ws3; exec $terminal_command; workspace $ws1'
+exec --no-startup-id i3-msg 'workspace $ws4; exec $ide_command; workspace $ws1'
+exec --no-startup-id i3-msg 'workspace $ws5; exec $terminal_command; workspace $ws1'
 
 # back and forth
 bindsym $mod+Tab workspace back_and_forth
 
-# give window focus if it wants it
-focus_on_window_activation focus
+# focus
+focus_on_window_activation focus 
+focus_follows_mouse no
 
 # start dropbox
 exec --no-startup-id dropbox start
@@ -126,10 +136,12 @@ floating_modifier $mod
 bindsym $mod+grave exec $terminal_command
 
 # kill focused window
-bindsym $mod+q kill
+bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+p exec --no-startup-id i3-dmenu-desktop -dmenu='rofi -dmenu'
+
+
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -224,3 +236,18 @@ bar {
         status_command i3status
         tray_output primary
 }
+
+hide_edge_borders both
+
+##
+# Window Colors
+##
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #859900 #859900 #ffffff #2e9ef4   #859900
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff

@@ -1,16 +1,4 @@
 #!/usr/bin/env bash
-while getopts "y" opt; do
-  case $opt in
-    y)
-      DASH_Y=-y
-      ;;
-    \?)
-      echo "Invalid option: -$OPTARG" >&2
-      exit 1
-      ;;
-  esac
-done
-
 LOC=$(dirname $(readlink -f $0))
 
 if ! source /etc/os-release 2> /dev/null; then
@@ -34,7 +22,7 @@ grep -v '^#' < $BASE_DIR/$ID/packages.list | {
     if ! [ "$PACKAGE" ]; then
       continue
     fi
-    . $BASE_DIR/$ID/installpkg.sh $DASH_Y $PACKAGE || exit 1
+    . $BASE_DIR/$ID/installpkg.sh -y $PACKAGE || exit 1
   done 
 }
 

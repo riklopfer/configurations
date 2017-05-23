@@ -55,12 +55,6 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-# cycle workspaces
-bindsym $mod+i workspace next
-bindsym $mod+u workspace prev
-bindsym $mod+Shift+i move container to workspace next
-bindsym $mod+Shift+u move container to workspace prev
-
 # set variables for common commands
 set $terminal_command           urxvtcd
 set $text_editor_command        subl
@@ -147,23 +141,27 @@ bindsym $mod+p exec --no-startup-id i3-dmenu-desktop -dmenu='rofi -dmenu'
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+##
+# Navigation
+##
+
+# cycle workspaces
+bindsym $mod+o workspace next
+bindsym $mod+u workspace prev
+bindsym $mod+Shift+o move container to workspace next
+bindsym $mod+Shift+u move container to workspace prev
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
-#bindsym $mod+Left focus left
-#bindsym $mod+Down focus down
-#bindsym $mod+Up focus up
-#bindsym $mod+Right focus right
+bindsym $mod+i focus up
+bindsym $mod+l focus right
 
 # move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+i move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left

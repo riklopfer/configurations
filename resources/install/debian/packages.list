@@ -19,6 +19,7 @@ network-manager-gnome
 chromium
 hexchat
 openconnect
+network-manager-openconnect-gnome
 netselect-apt
 curl
 

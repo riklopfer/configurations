@@ -95,6 +95,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias less='less -r'
 
 alias clipboard='xclip -selection clipoboard'
 alias pb="pastebinit"

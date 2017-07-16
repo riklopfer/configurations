@@ -6,6 +6,9 @@ libanyevent-i3-perl
 xautolock
 rofi
 
+# power management
+tlp 
+
 # notifications
 dunst
 dbus-x11
@@ -39,7 +42,8 @@ git
 mercurial
 python 
 python-pip
-default-jdk
+openjdk-8-jdk
+openjdk-8-source
 
 # encryption / passwords
 gnupg2

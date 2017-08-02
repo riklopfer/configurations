@@ -70,15 +70,28 @@ set $email_command              thunderbird
 set $irc_command                hexchat
 set $lock_command               "i3lock -c 002b36"
 
-# class found with `xprop`
-assign [class="jetbrains-idea-ce" title=".*IntelliJ IDEA.*"] $ws4
-assign [instance="chromium-browser"] $ws1
+##
+# class found with `xprop` WM_CLASS = 'instance'
+##
 
-# pop ups (e.g. idea)
+# intellij
+assign [class="jetbrains-idea-ce" title=".*IntelliJ IDEA.*"] $ws4
+for_window [class="jetbrains-idea-ce" title=".*IntelliJ IDEA.*"] layout tabbed
+for_window [class="jetbrains-idea-ce" instance="sun-awt-X11-XDialogPeer"] floating enable
 for_window [class="jetbrains-idea-ce" instance="sun-awt-X11-XDialogPeer"] floating enable
 
-# no border on chromium
+# chromium 
+assign [instance="chromium-browser"] $ws1
+for_window [instance="chromium-browser"] layout tabbed
 for_window [instance="chromium-browser"] border none
+
+# sublime text on ws2
+assign [instance="sublime_text"] $ws2
+for_window [instance="sublime_text"] layout tabbed
+
+# random pop ups
+for_window [instance="gcr-prompter"] focus
+for_window [title="Profile error occurred"] floating enable
 
 # start applications in specific workspaces
 exec --no-startup-id i3-msg 'workspace $ws1; exec $browser_command; workspace $ws1'

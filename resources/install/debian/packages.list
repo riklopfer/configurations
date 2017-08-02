@@ -6,6 +6,9 @@ libanyevent-i3-perl
 xautolock
 rofi
 
+# power management
+tlp 
+
 # notifications
 dunst
 dbus-x11
@@ -19,6 +22,7 @@ network-manager-gnome
 chromium
 hexchat
 openconnect
+network-manager-openconnect-gnome
 netselect-apt
 curl
 
@@ -38,7 +42,8 @@ git
 mercurial
 python 
 python-pip
-default-jdk
+openjdk-8-jdk
+openjdk-8-source
 
 # encryption / passwords
 gnupg2

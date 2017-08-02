@@ -88,6 +88,11 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# turn off the system bell in x windows
+if [ -n "$DISPLAY" ]; then
+  xset b off
+fi
+
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
@@ -95,6 +100,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias less='less -r'
 
 alias clipboard='xclip -selection clipoboard'
 alias pb="pastebinit"
@@ -135,7 +141,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/PythonProjects
 
 export JAVA_HOME=/usr/lib/jvm/default-java
-export JYTHON_HOME=$HOME/jython
+export JYTHON_HOME=$HOME/.jython_home
 export PYTHONPATH=/home/rklopfer/Work/scm/ICBM
 
 # MModal specific

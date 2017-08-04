@@ -72,7 +72,6 @@ set $lock_command               "i3lock -c 002b36"
 assign [class="jetbrains-idea-ce" title=".*IntelliJ IDEA.*"] $ws4
 for_window [class="jetbrains-idea-ce" title=".*IntelliJ IDEA.*"] layout tabbed
 for_window [class="jetbrains-idea-ce" instance="sun-awt-X11-XDialogPeer"] floating enable
-for_window [class="jetbrains-idea-ce" instance="sun-awt-X11-XDialogPeer"] floating enable
 
 # chromium 
 assign [instance="chromium-browser"] $ws1

@@ -169,6 +169,7 @@ function jart () {
     done
 }
 
+export SCM_HOME=$HOME/Work/scm
 function pullAll() {
     if [ $1 ]; then
         TOP=$@

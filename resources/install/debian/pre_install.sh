@@ -1,6 +1,11 @@
 #/usr/bin/env bash
+DIST_NAME=sid
+if [ $1 ]; then
+    DIST_NAME=$1
+fi
+
 echo
-echo "Running pre install script: $0"
+echo "Running pre install script for: $DIST_NAME"
 echo 
 
 sudo apt-get update || { 
@@ -18,7 +23,7 @@ sudo apt-get install -y netselect-apt || {
 }
 
 # update to sid! 
-sudo netselect-apt sid -no /etc/apt/sources.list || {
+sudo netselect-apt ${DIST_NAME} -no /etc/apt/sources.list || {
 	echo "Failed to update to sid... continuing"
 }
 

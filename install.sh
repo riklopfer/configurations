@@ -1,6 +1,18 @@
 #!/usr/bin/env bash
 LOC=$(dirname $(readlink -f $0))
 
+while getopts "d:" opt; do
+  case $opt in
+    d)
+      DIST_NAME=${OPTARG}
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+  esac
+done
+
 if ! source /etc/os-release 2> /dev/null; then
     echo "Cannot find /etc/os-release -- don't know how to proceed."
     exit 1
@@ -12,7 +24,7 @@ if ! [ -d $BASE_DIR/$ID ]; then
     exit 1
 fi
 
-[ -f $BASE_DIR/$ID/pre_install.sh ] && . $BASE_DIR/$ID/pre_install.sh
+[ -f $BASE_DIR/$ID/pre_install.sh ] && . $BASE_DIR/$ID/pre_install.sh ${DIST_NAME}
 
 echo 
 echo "Installing packages for $ID"

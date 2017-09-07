@@ -65,7 +65,7 @@ bindsym $mod+Shift+u move container to workspace prev
 set $terminal_command           urxvtcd
 set $text_editor_command        subl
 set $ide_command                idea
-set $browser_command            chromium-browser
+set $browser_command            chromium
 set $email_command              thunderbird
 set $irc_command                hexchat
 set $lock_command               "i3lock -c 002b36"
@@ -81,9 +81,9 @@ for_window [class="jetbrains-idea-ce" instance="sun-awt-X11-XDialogPeer"] floati
 for_window [class="jetbrains-idea-ce" instance="sun-awt-X11-XDialogPeer"] floating enable
 
 # chromium 
-assign [instance="chromium-browser"] $ws1
-for_window [instance="chromium-browser"] layout tabbed
-for_window [instance="chromium-browser"] border none
+assign [instance="chromium"] $ws1
+for_window [instance="chromium"] layout tabbed
+for_window [instance="chromium"] border none
 
 # sublime text on ws2
 assign [instance="sublime_text"] $ws2

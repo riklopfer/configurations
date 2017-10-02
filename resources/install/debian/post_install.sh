@@ -10,19 +10,6 @@ echo
 # sudo make clean install || exit 1
 # cd -
 
-# sublime text
-if ! dpkg -s sublime-text >& /dev/null ; then
-	echo "Installing sublime text"
-	# install 
-	if ! [ -f /tmp/sublime-text.deb ]; then
-		wget https://download.sublimetext.com/sublime-text_build-3126_amd64.deb -O /tmp/sublime-text.deb
-	fi
-	sudo dpkg -i /tmp/sublime-text.deb || {
-		echo "Failed to install SUBLIME TEXT"
-		exit 1
-	}
-fi 
-
 # dropbox
 if ! dpkg -s dropbox >& /dev/null ; then
 	echo "Installing dropbox"

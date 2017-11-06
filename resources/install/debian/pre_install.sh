@@ -12,7 +12,7 @@ sudo apt-get update || {
 	echo "FAILED TO UPDATE"
 	exit 1
 }
-sudo apt-get install -y wget curl || {
+sudo apt-get install -y wget curl wget || {
 	echo "FAILED TO INSTALL curl"
 	exit 1
 }
@@ -25,6 +25,10 @@ sudo apt-get install -y netselect-apt || {
 # update to sid! 
 sudo netselect-apt ${DIST_NAME} -no /etc/apt/sources.list || {
 	echo "Failed to update to sid... continuing"
+}
+
+sudo apt install apt-transport-https || {
+	echo "Failed to install https transport"
 }
 
 sudo apt-get update || {

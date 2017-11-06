@@ -85,6 +85,7 @@ for_window [instance="sublime_text"] layout tabbed
 # random pop ups
 for_window [instance="gcr-prompter"] focus
 for_window [title="Profile error occurred"] floating enable
+for_window [class="org-python-util-jython"] floating enbale
 
 # start applications in specific workspaces
 exec --no-startup-id i3-msg 'workspace $ws1; exec $browser_command; workspace $ws1'

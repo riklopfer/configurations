@@ -142,7 +142,9 @@ export PROJECT_HOME=$HOME/PythonProjects
 
 export JAVA_HOME=/usr/lib/jvm/default-java
 export JYTHON_HOME=$HOME/.jython_home
-export PYTHONPATH=/home/rklopfer/Work/scm/ICBM
+export SCM_HOME=$HOME/Work/scm
+export PYTHONPATH=$SCM_HOME/ICBM
+export PYTHONUNBUFFERED=1
 
 # MModal specific
 export DEVTOOLS=$HOME/Work/scm/devTools

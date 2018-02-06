@@ -184,13 +184,8 @@ function pullAll() {
     else
         TOP=.
     fi
-
-    for D in `/usr/bin/find ${TOP} -maxdepth 2 -type d -name ".hg"`; do
-        pushd `dirname ${D}` > /dev/null
-
-        hg pull -u
-        echo
-
-        popd > /dev/null
+    
+    for D in $(/usr/bin/find ${TOP} -maxdepth 2 -type d -name ".hg"); do
+        hg pull -u -R $(dirname $D) &
     done
 }

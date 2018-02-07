@@ -21,6 +21,6 @@ fi
 
 [ $EXIT_CODE -eq 0 ] && PF="PASS"
 
-pnote ${PF} ${M}m ${CMD}
+pnote $${PF} $PWD ${M}m ${CMD}
 
 exit $EXIT_CODE

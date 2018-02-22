@@ -185,7 +185,7 @@ function pullAll() {
         TOP=.
     fi
     
-    for D in $(/usr/bin/find ${TOP} -maxdepth 2 -type d -name ".hg"); do
+    for D in $(/usr/bin/find ${TOP} -maxdepth 3 -type d -name ".hg"); do
         hg pull -u -R $(dirname $D) &
     done
 }

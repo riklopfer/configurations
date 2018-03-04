@@ -9,5 +9,5 @@ else
     git clone https://github.com/riklopfer/rig.git ${HOME}/Git/rig
 fi
 
-${HOME}/Git/rig/install.sh 2>&1 | tee log.rig-install
-${HOME}/Git/rig/configure.sh 2>&1 | tee log.rig-configure
+${HOME}/Git/rig/install.sh 2>&1 | tee log.rig-install; test ${PIPESTATUS[0]} -eq 0
+${HOME}/Git/rig/configure.sh 2>&1 | tee log.rig-configure; test ${PIPESTATUS[0]} -eq 0

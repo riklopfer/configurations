@@ -3,13 +3,6 @@ echo
 echo -e "Running post install script: $0"
 echo 
 
-# surf
-# ! [ -d $HOME/Git ] && mkdir $HOME/Git
-# git clone http://git.suckless.org/surf $HOME/Git/surf
-# cd $HOME/Git/surf
-# sudo make clean install || exit 1
-# cd -
-
 # dropbox
 if ! dpkg -s dropbox >& /dev/null ; then
 	echo "Installing dropbox"
@@ -24,13 +17,6 @@ if ! dpkg -s dropbox >& /dev/null ; then
 	}
 fi
 
-# install jython
-wget http://repo1.maven.org/maven2/org/python/jython-installer/2.7.1b3/jython-installer-2.7.1b3.jar \
-						-O /tmp/jython-installer.jar && \
-						java -jar /tmp/jython-installer.jar -s -d $HOME/.jython_home || {
-							echo "Failed to install jython"
-						}
-
 # update alternatives
 if hash urxvtcd 2>/dev/null; then
 	sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $(which urxvtcd) 100
@@ -41,9 +27,3 @@ if hash urxvtcd 2>/dev/null; then
 else
 	echo "urxvtcd not installed"
 fi
-
-# upgrade pip and virtual env wrapper
-sudo pip install -U pip virtualenvwrapper || {
-	echo "Failed to install virtualenvwrapper and pip"
-}
-

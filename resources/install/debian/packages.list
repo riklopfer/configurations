@@ -51,7 +51,6 @@ gnupg2
 pass
 
 # email
-#mutt abook w3m
 geary
 
 # utils

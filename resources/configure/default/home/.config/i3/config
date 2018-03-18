@@ -108,6 +108,12 @@ bindsym $mod+Tab workspace back_and_forth
 focus_on_window_activation focus 
 focus_follows_mouse no
 
+# start network manager applet
+exec --no-startup-id nm-applet
+
+# start bluetooth manager applet
+exec --no-startup-id blueman-applet
+
 # start dropbox
 exec --no-startup-id dropbox start
 

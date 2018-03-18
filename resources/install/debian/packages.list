@@ -26,6 +26,9 @@ network-manager-openconnect-gnome
 netselect-apt
 curl
 
+# bluetooth
+blueman
+
 # terminal
 rxvt-unicode-256color 
 ncurses-term 

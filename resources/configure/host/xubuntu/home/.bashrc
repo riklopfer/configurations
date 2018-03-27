@@ -136,8 +136,8 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/PythonProjects
 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-export JYTHON_HOME=$HOME/.jython_home
-export PYTHONPATH=$HOME/Work/scm/ICBM
+export PYTHONPATH=$HOME/Work/scm/ICBM:$HOME/Work/scm/MMPy
+export PYTHONUNBUFFERED=1
 
 # MModal specific
 export DEVTOOLS=$HOME/Work/scm/devTools
@@ -178,13 +178,8 @@ function pullAll() {
     else
         TOP=.
     fi
-
-    for D in `/usr/bin/find ${TOP} -maxdepth 2 -type d -name ".hg"`; do
-        pushd `dirname ${D}` > /dev/null
-
-        hg pull -u
-        echo
-
-        popd > /dev/null
+    
+    for D in $(/usr/bin/find ${TOP} -maxdepth 3 -type d -name ".hg"); do
+        hg pull -u -R $(dirname $D) &
     done
 }

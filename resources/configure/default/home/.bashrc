@@ -140,7 +140,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/PythonProjects
 
-export JAVA_HOME=/usr/lib/jvm/default-java
+export JAVA_HOME=//usr/lib/jvm/java-8-openjdk-amd64/
 export JYTHON_HOME=$HOME/.jython_home
 export SCM_HOME=$HOME/Work/scm
 export PYTHONPATH=$SCM_HOME/ICBM

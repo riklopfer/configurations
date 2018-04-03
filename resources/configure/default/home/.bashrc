@@ -185,7 +185,14 @@ function pullAll() {
         TOP=.
     fi
     
-    for D in $(/usr/bin/find ${TOP} -maxdepth 3 -type d -name ".hg"); do
-        hg pull -u -R $(dirname $D) &
+    for HG_DIR in $(/usr/bin/find ${TOP} -maxdepth 3 -type d -name ".hg"); do
+        REPO_DIR=$(dirname $HG_DIR)
+        if hg incoming -R $REPO_DIR > /dev/null ; then
+            echo "Pulling changes to $REPO_DIR"
+            hg pull -u -R $REPO_DIR > /dev/null &
+        fi
+        # else
+        #     echo "No changes to $REPO_DIR"
+        # fi
     done
 }

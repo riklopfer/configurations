@@ -184,7 +184,7 @@ function pullAll() {
         REPO_DIR=$(dirname $HG_DIR)
         if hg incoming -R $REPO_DIR > /dev/null ; then
             echo "Pulling changes to $REPO_DIR"
-            hg pull -u -R $REPO_DIR > /dev/null &
+            (hg pull -u -R $REPO_DIR > /dev/null &)
         fi
         # else
         #     echo "No changes to $REPO_DIR"

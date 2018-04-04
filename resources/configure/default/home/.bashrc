@@ -140,7 +140,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/PythonProjects
 
-export JAVA_HOME=//usr/lib/jvm/java-8-openjdk-amd64/
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 export JYTHON_HOME=$HOME/.jython_home
 export SCM_HOME=$HOME/Work/scm
 export PYTHONPATH=$SCM_HOME/ICBM
@@ -189,7 +189,7 @@ function pullAll() {
         REPO_DIR=$(dirname $HG_DIR)
         if hg incoming -R $REPO_DIR > /dev/null ; then
             echo "Pulling changes to $REPO_DIR"
-            hg pull -u -R $REPO_DIR > /dev/null &
+            (hg pull -u -R $REPO_DIR > /dev/null &)
         fi
         # else
         #     echo "No changes to $REPO_DIR"

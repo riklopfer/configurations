@@ -7,7 +7,12 @@ fi
 MESSAGE="$@"
 
 if ! [ $PUSHOVER_USER_TOK ]; then
-    . $HOME/.pushover || { echo "$HOME/.pushover not found"; exit 1; }
+    if [ -e $HOME/.pushover ]; then
+        . $HOME/.pushover  
+    else
+        echo "File not found: $HOME/.pushover"
+        exit 1
+    fi
 fi
 
 curl -s \

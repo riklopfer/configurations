@@ -139,6 +139,9 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export PYTHONPATH=$HOME/Work/scm/ICBM:$HOME/Work/scm/MMPy
 export PYTHONUNBUFFERED=1
 
+export JYTHON_HOME=$HOME/.jython_home
+export PATH=$PATH:$JYTHON_HOME/bin
+
 # MModal specific
 export DEVTOOLS=$HOME/Work/scm/devTools
 

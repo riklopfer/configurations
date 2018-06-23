@@ -55,7 +55,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 set $terminal_command           urxvtcd
 set $text_editor_command        subl
 set $ide_command                idea
-set $browser_command            chromium --enable-remote-extensions
+set $browser_command            google-chrome
 set $mail_command               geary
 set $irc_command                hexchat
 set $lock_command               "i3lock -c 002b36"
@@ -70,10 +70,10 @@ for_window [class="jetbrains-idea-ce" title=".*IntelliJ IDEA.*"] layout tabbed
 for_window [class="jetbrains-idea-ce" instance="sun-awt-X11-XDialogPeer"] floating enable
 for_window [class="jetbrains-idea-ce" instance="sun-awt-X11-XDialogPeer"] floating enable
 
-# chromium 
-assign [instance="chromium"] $ws1
-for_window [instance="chromium"] layout tabbed
-for_window [instance="chromium"] border none
+# google-chrome 
+assign [instance="google-chrome"] $ws1
+for_window [instance="google-chrome"] layout tabbed
+for_window [instance="google-chrome"] border none
 
 # sublime text on ws2
 assign [instance="sublime_text"] $ws2

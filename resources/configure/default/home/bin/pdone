@@ -10,7 +10,10 @@ PF="FAIL"
 
 T="$(date +%s%N)"
 "${@}" 
-EXIT_CODE=$?
+if [ $? -eq 0 ]; then
+    PF="PASS" 
+fi
+
 T="$(($(date +%s%N)-T))"
 
 if $(hash bc 2> /dev/null); then
@@ -19,8 +22,6 @@ else
     M=$((${T}/60000000000))
 fi
 
-[ $EXIT_CODE -eq 0 ] && PF="PASS"
-
-pnote $${PF} $PWD ${M}m ${CMD}
+pnote ${PF} $PWD ${M}m ${CMD}
 
 exit $EXIT_CODE

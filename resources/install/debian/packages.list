@@ -7,7 +7,7 @@ xautolock
 rofi
 
 # power management
-tlp 
+# tlp 
 
 # notifications
 dunst

@@ -10,18 +10,10 @@ echo
 # sudo make clean install || exit 1
 # cd -
 
-# sublime text
-if ! dpkg -s sublime-text >& /dev/null ; then
-	echo "Installing sublime text"
-	# install 
-	if ! [ -f /tmp/sublime-text.deb ]; then
-	    wget https://download.sublimetext.com/sublime-text_build-3126_amd64.deb -O /tmp/sublime-text.deb
-	fi
-	sudo dpkg -i /tmp/sublime-text.deb || {
-	    echo "FAILED TO INSTALL SUBLIME TEXT"
-	    exit 1
-	}
-fi 
+
+sudo apt-get install libxss1 libappindicator1 libindicator7
+curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o /tmp/chrome-installer.deb
+sudo dpkg -i /tmp/chrome-installer.deb
 
 # update alternatives
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $(which urxvtcd) 100

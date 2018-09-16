@@ -1,10 +1,16 @@
 # window manager
-xorg
 i3
 i3status
 libanyevent-i3-perl
 xautolock
 rofi
+
+# networking
+curl
+wget
+openconnect
+network-manager-openconnect-gnome
+netselect-apt
 
 # notifications
 dunst
@@ -19,17 +25,16 @@ fonts-inconsolata
 htop
 
 # development
-git
-tortoisehg
+mercurial
 python 
 python-pip
-openjdk-8-jdk-headless
-openjdk-8-source --no-install-recommends
+openjdk-8-jdk
+openjdk-8-source
+sublime-text
 
 # encryption / passwords
-gnupg2
-pass
+#gnupg2
+#pass
 
 # utils
 task
-thunar-dropbox-plugin

@@ -1,0 +1,40 @@
+# window manager
+i3
+i3status
+libanyevent-i3-perl
+xautolock
+rofi
+
+# networking
+curl
+wget
+openconnect
+network-manager-openconnect-gnome
+netselect-apt
+
+# notifications
+dunst
+dbus-x11
+dbus-user-session
+libnotify-bin
+
+# terminal
+rxvt-unicode-256color 
+ncurses-term 
+fonts-inconsolata
+htop
+
+# development
+mercurial
+python 
+python-pip
+openjdk-8-jdk
+openjdk-8-source
+sublime-text
+
+# encryption / passwords
+#gnupg2
+#pass
+
+# utils
+task

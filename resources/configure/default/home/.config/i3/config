@@ -16,8 +16,8 @@ set $windows Mod4
 # rklopfer
 #######
 
-# Disable trackpad
-exec synclient TouchpadOff=1
+# Set Xresources
+exec xrdb -load ~/.Xresources
 
 # Workspace names
 set $ws1 1:web

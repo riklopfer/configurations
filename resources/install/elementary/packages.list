@@ -1,9 +1,14 @@
-# window manager
+# i3 window manager
 i3
 i3status
 libanyevent-i3-perl
 xautolock
 rofi
+# notifications
+dunst
+#dbus-x11
+#dbus-user-session
+#libnotify-bin
 
 # networking
 curl
@@ -11,12 +16,6 @@ wget
 openconnect
 network-manager-openconnect-gnome
 netselect-apt
-
-# notifications
-dunst
-dbus-x11
-dbus-user-session
-libnotify-bin
 
 # terminal
 rxvt-unicode-256color 
@@ -27,7 +26,10 @@ htop
 # development
 mercurial
 python 
+python-numpy 
+python-dev
 python-pip
+python-wheel
 openjdk-8-jdk
 openjdk-8-source
 sublime-text

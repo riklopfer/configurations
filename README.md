@@ -25,27 +25,23 @@ find -L ~/ -type l -delete
 ```
 
 # Software installed
-Currently, [debian](resources/install/debian) contains he most up-to-date [packages.list](resources/install/debian/packages.list). This will install everything you need starting from a base system (no desktop).
 
-Here are some highlights from [packages.list](resources/intall/debian/packages.list)
-  * Window Manger: [i3](https://i3wm.org/)
-  * Terminal Emulator: [urxvt](http://software.schmorp.de/pkg/rxvt-unicode.html)
-  * Text Editor: [sublime-text](https://www.sublimetext.com/3)
-  * Webbrowser: [chromium](https://www.chromium.org/Home)
-  * Dev
-    * Python: 
-      * [pip](https://en.wikipedia.org/wiki/Pip_(package_manager))
-        * [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/)
-    * Java 8
-  * Email: [geary](https://wiki.gnome.org/Apps/Geary)
-  * Todo list: [taskwarrior](https://taskwarrior.org/)
+Generally speaking we will install the following. 
 
+  * [i3 window manager](https://i3wm.org/)
+  * dunst
+  * [urxvt terminal emulator](http://software.schmorp.de/pkg/rxvt-unicode.html)
+  * [sublime-text text editor](https://www.sublimetext.com/3)
+  * Google Chrome web browser 
+  * Dropbox
+  * [geary email client](https://wiki.gnome.org/Apps/Geary)
+  * [taskwarrior todo list](https://taskwarrior.org/)
+  * Python, Pip, numpy, reqs for tensorflow
+  * Java 8
 
 
 # Configuration files 
 
 Configurations are separated into [default](resources/configure/default) and [host-specific](resources/configure/host) configuration files. The default configurations are installed for all hosts then overwritten by the host-specifc configuration files. 
 
-# TODO
 
- * automatically install intellij

@@ -56,7 +56,7 @@ set $terminal_command           urxvtcd
 set $text_editor_command        subl
 set $ide_command                idea
 set $browser_command            google-chrome
-set $mail_command               geary
+set $mail_command               pantheon-mail
 set $irc_command                hexchat
 set $lock_command               "i3lock -c 002b36"
 

@@ -135,10 +135,16 @@ if [ -x /usr/bin/mint-fortune ]; then
      /usr/bin/mint-fortune
 fi
 
-# virtualenvwrapper
-source /usr/local/bin/virtualenvwrapper.sh
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/PythonProjects
+# virtualenvwrapper set up
+if [ -e /usr/bin/virtualenvwrapper.sh ]; then
+   VENV_HOME=$HOME
+   if [ -d /opt/$USER ]; then
+       VENV_HOME=/opt/$USER
+   fi
+   export WORKON_HOME=$VENV_HOME/.virtualenvs
+   export PROJECT_HOME=$VENV_HOME/PythonProjects
+   source /usr/bin/virtualenvwrapper.sh
+fi
 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 export JYTHON_HOME=$HOME/.jython_home

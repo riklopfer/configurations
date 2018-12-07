@@ -6,9 +6,6 @@ xautolock
 rofi
 # notifications
 dunst
-#dbus-x11
-#dbus-user-session
-#libnotify-bin
 
 # networking
 curl
@@ -25,6 +22,7 @@ htop
 
 # development
 mercurial
+meld
 python 
 python-numpy 
 python-dev
@@ -33,10 +31,6 @@ python-wheel
 openjdk-8-jdk
 openjdk-8-source
 sublime-text
-
-# encryption / passwords
-#gnupg2
-#pass
 
 # utils
 task

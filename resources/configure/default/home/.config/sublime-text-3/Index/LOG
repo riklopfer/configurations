@@ -1,0 +1,6 @@
+2019/01/07-15:46:05.962311 7f235bfff700 Recovering log #34
+2019/01/07-15:46:05.975280 7f235bfff700 Delete type=3 #33
+2019/01/07-15:46:05.975315 7f235bfff700 Delete type=0 #34
+2019/01/07-15:58:13.777952 7f235bfff700 Compacting 1@0 + 1@1 files
+2019/01/07-15:58:13.778357 7f235bfff700 compacted to: files[ 1 1 0 0 0 0 0 ]
+2019/01/07-15:58:13.778388 7f235bfff700 Compaction error: IO error: /home/rklopfer/.config/sublime-text-3/Index/000037.ldb: No such file or directory

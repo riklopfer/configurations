@@ -74,9 +74,9 @@ for_window [class="jetbrains-idea-ce" title=".*IntelliJ IDEA.*"] layout tabbed
 for_window [class="jetbrains-idea-ce" instance="sun-awt-X11-XDialogPeer"] floating enable
 
 # chromium 
-assign [instance="chromium-browser"] $ws1
-for_window [instance="chromium-browser"] layout tabbed
-for_window [instance="chromium-browser"] border none
+assign [instance="google-chrome"] $ws1
+for_window [instance="google-chrome"] layout tabbed
+for_window [instance="google-chrome"] border none
 
 # sublime text on ws2
 assign [instance="sublime_text"] $ws2

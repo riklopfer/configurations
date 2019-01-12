@@ -56,18 +56,18 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # cycle workspaces
-bindsym $mod+i workspace next
+bindsym $mod+o workspace next
 bindsym $mod+u workspace prev
-bindsym $mod+Shift+i move container to workspace next
+bindsym $mod+Shift+o move container to workspace next
 bindsym $mod+Shift+u move container to workspace prev
 
 # set variables for common commands
 set $terminal_command           urxvtcd
 set $text_editor_command        subl
 set $ide_command                idea
-set $browser_command            chromium
+set $browser_command            google-chrome
 set $email_command              thunderbird
-set $irc_command                hexchat
+set $chat_command               slack
 set $lock_command               "i3lock -c 002b36"
 
 ##
@@ -80,14 +80,17 @@ for_window [class="jetbrains-idea-ce" title=".*IntelliJ IDEA.*"] layout tabbed
 for_window [class="jetbrains-idea-ce" instance="sun-awt-X11-XDialogPeer"] floating enable
 for_window [class="jetbrains-idea-ce" instance="sun-awt-X11-XDialogPeer"] floating enable
 
-# chromium 
-assign [instance="chromium"] $ws1
-for_window [instance="chromium"] layout tabbed
-for_window [instance="chromium"] border none
+# google-chrome 
+assign [instance="google-chrome"] $ws1
+for_window [instance="google-chrome"] layout tabbed
+for_window [instance="google-chrome"] border none
 
 # sublime text on ws2
 assign [instance="sublime_text"] $ws2
 for_window [instance="sublime_text"] layout tabbed
+
+# slack
+assign [class="Slack"] $ws6
 
 # random pop ups
 for_window [instance="gcr-prompter"] focus
@@ -100,6 +103,7 @@ exec --no-startup-id i3-msg 'workspace $ws2; exec $text_editor_command; workspac
 exec --no-startup-id i3-msg 'workspace $ws3; exec $terminal_command; workspace $ws1'
 exec --no-startup-id i3-msg 'workspace $ws4; exec $ide_command; workspace $ws1'
 exec --no-startup-id i3-msg 'workspace $ws5; exec $terminal_command; workspace $ws1'
+exec --no-startup-id i3-msg 'workspace $ws6; exec $chat_command; workspace $ws1'
 
 # back and forth
 bindsym $mod+Tab workspace back_and_forth
@@ -124,13 +128,13 @@ bindsym $windows+Escape exec $lock_command
 
 # from https://faq.i3wm.org/question/3747/enabling-multimedia-keys.1.html
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 1 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 1 # decrease screen brightness
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 1 # increase screen brightness
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 1 # decrease screen brightness
 
 ##########
 

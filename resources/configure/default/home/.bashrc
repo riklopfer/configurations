@@ -136,21 +136,29 @@ if [ -x /usr/bin/mint-fortune ]; then
 fi
 
 # virtualenvwrapper set up
-if [ -e /usr/bin/virtualenvwrapper.sh ]; then
+[ -e /usr/bin/virtualenvwrapper.sh ] && VENVW=/usr/bin/virtualenvwrapper.sh
+[ -e /usr/local/bin/virtualenvwrapper.sh ] && VENVW=/usr/local/bin/virtualenvwrapper.sh
+
+if [ $VENVW ]; then
    VENV_HOME=$HOME
    if [ -d /opt/$USER ]; then
        VENV_HOME=/opt/$USER
    fi
    export WORKON_HOME=$VENV_HOME/.virtualenvs
    export PROJECT_HOME=$VENV_HOME/PythonProjects
-   source /usr/bin/virtualenvwrapper.sh
+   source ${VENVW}
 fi
 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
-export JYTHON_HOME=$HOME/.jython_home
+[ -d $HOME/.jython_home ] && export JYTHON_HOME=$HOME/.jython_home
+
 export SCM_HOME=$HOME/Work/scm
 export PYTHONPATH=$SCM_HOME/ICBM
 export PYTHONUNBUFFERED=1
+
+# CUDA if it's there
+[ -d /usr/local/cuda/bin ] && export PATH="/usr/local/cuda/bin:$PATH"
+[ -d /usr/local/cuda/lib64 ] && export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
 
 # MModal specific
 export DEVTOOLS=$HOME/Work/scm/devTools

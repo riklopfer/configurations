@@ -68,7 +68,7 @@ set $ide_command                idea
 set $browser_command            google-chrome
 set $email_command              thunderbird
 set $chat_command               slack
-set $lock_command               "i3lock -c 002b36"
+set $lock_command               "light-locker-command -l"
 
 ##
 # class found with `xprop` WM_CLASS = 'instance'
@@ -121,10 +121,11 @@ exec --no-startup-id blueman-applet
 # start dropbox
 exec --no-startup-id dropbox start
 
+# start light-locker (screen locking)
+exec --no-startup-id light-locker
+
 # screen locking
-bindsym $windows+Escape exec $lock_command
-# THIS IS A VM RIGHT NOW SO NO SCREEN LOCKING
-#exec --no-startup-id xautolock -time 10 -locker $lock_command
+bindsym $windows+l exec $lock_command
 
 # from https://faq.i3wm.org/question/3747/enabling-multimedia-keys.1.html
 # Pulse Audio controls

@@ -2,6 +2,9 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Give group +rwx to all newly created files
+umask 007
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -131,23 +134,19 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if [ -x /usr/bin/mint-fortune ]; then
-     /usr/bin/mint-fortune
-fi
-
 # virtualenvwrapper set up
-[ -e /usr/bin/virtualenvwrapper.sh ] && VENVW=/usr/bin/virtualenvwrapper.sh
-[ -e /usr/local/bin/virtualenvwrapper.sh ] && VENVW=/usr/local/bin/virtualenvwrapper.sh
+# [ -e /usr/bin/virtualenvwrapper.sh ] && VENVW=/usr/bin/virtualenvwrapper.sh
+# [ -e /usr/local/bin/virtualenvwrapper.sh ] && VENVW=/usr/local/bin/virtualenvwrapper.sh
 
-if [ $VENVW ]; then
-   VENV_HOME=$HOME
-   if [ -d /opt/$USER ]; then
-       VENV_HOME=/opt/$USER
-   fi
-   export WORKON_HOME=$VENV_HOME/.virtualenvs
-   export PROJECT_HOME=$VENV_HOME/PythonProjects
-   source ${VENVW}
-fi
+# if [ $VENVW ]; then
+#    VENV_HOME=$HOME
+#    if [ -d /opt/$USER ]; then
+#        VENV_HOME=/opt/$USER
+#    fi
+#    export WORKON_HOME=$VENV_HOME/.virtualenvs
+#    echo "source ${VENVW}"
+#    source ${VENVW}
+# fi
 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 [ -d $HOME/.jython_home ] && export JYTHON_HOME=$HOME/.jython_home

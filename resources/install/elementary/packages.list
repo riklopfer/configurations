@@ -2,9 +2,7 @@
 i3
 i3status
 libanyevent-i3-perl
-xautolock
 rofi
-# notifications
 dunst
 
 # networking
@@ -28,6 +26,7 @@ python-numpy
 python-dev
 python-pip
 python-wheel
+virtualenvwrapper
 openjdk-8-jdk
 openjdk-8-source
 sublime-text

@@ -13,3 +13,4 @@ ncurses-term
 fonts-inconsolata
 python 
 python-pip
+virtualenvwrapper

@@ -36,6 +36,3 @@ sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emula
 sudo update-alternatives --set x-terminal-emulator $(which urxvtcd) || {
     echo "FAILED TO UPDATE ALTERNATIVES with '$(which urxvtcd) '"
 }
-
-# upgrade pip and virtual env wrapper
-sudo pip install -U pip virtualenvwrapper || exit 1

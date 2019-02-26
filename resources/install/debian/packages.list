@@ -45,6 +45,7 @@ git
 mercurial
 python 
 python-pip
+virtualenvwrapper
 openjdk-8-jdk
 openjdk-8-source
 sublime-text

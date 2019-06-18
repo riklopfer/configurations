@@ -21,3 +21,26 @@ export WORKON_HOME=$HOME/.virtualenvs
 # Aliases
 alias ll='ls -l'
 
+#
+# Functions
+export HG_HOME=~/Work/Source/Hg
+function pullAllHg() {
+    if [ $1 ]; then
+        TOP=$@
+    elif [ ${HG_HOME} ]; then
+        TOP=${HG_HOME}
+    else
+        TOP=.
+    fi
+    
+    for HG_DIR in $(/usr/bin/find ${TOP} -maxdepth 3 -type d -name ".hg"); do
+        REPO_DIR=$(dirname $HG_DIR)
+        if hg incoming -R $REPO_DIR > /dev/null ; then
+            echo "Pulling changes to $REPO_DIR"
+            (hg pull -u -R $REPO_DIR > /dev/null &)
+        fi
+        # else
+        #     echo "No changes to $REPO_DIR"
+        # fi
+    done
+}

@@ -36,7 +36,7 @@ function _ensure_bw() {
         export BW_SESSION=$(bw unlock --raw)
     else
         echo "Logging into BitWarden..."
-        export BW_SESSION=$(bw login russell@klopfer.us --raw)
+        export BW_SESSION=$(bw login EMAILADDRESSHERE --raw)
     fi
     return $?
 }
